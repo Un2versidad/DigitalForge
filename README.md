@@ -6,7 +6,7 @@
 ![License](https://img.shields.io/badge/license-MIT-pink?style=for-the-badge)
 ![Made in Panama](https://img.shields.io/badge/Made%20in-Panama%20🇵🇦-blue?style=for-the-badge)
 
-**Suite Profesional de Herramientas para Ingeniería Digital**
+**Suite Profesional de Herramientas para Logica Digital**
 
 *Calculadoras • Generadores HDL • Simuladores • Convertidores • Analizadores • IA Integrada*
 

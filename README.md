@@ -35,7 +35,7 @@
 
 ### ✨ ¿Por qué DigitalForge?
 
--   **5A0+ Herramientas**: Calculadoras, convertidores, simuladores y analizadores
+- 🔨 **50+ Herramientas**: Calculadoras, convertidores, simuladores y analizadores
 - 🤖 **IA Integrada**: Asistente inteligente con Claude Sonnet 4 y generador HDL automático
 - ☁️ **Cloud Storage**: Guarda circuitos y código HDL en la nube con Puter.js
 - 🎨 **Interfaz Moderna**: Diseño elegante con gradientes morados/rosas y animaciones suaves

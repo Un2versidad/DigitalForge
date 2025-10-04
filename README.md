@@ -40,8 +40,6 @@
 - ☁️ **Cloud Storage**: Guarda circuitos y código HDL en la nube con Puter.js
 - 🎨 **Interfaz Moderna**: Diseño elegante con gradientes morados/rosas y animaciones suaves
 - 📱 **PWA**: Instálalo como app nativa en cualquier dispositivo
-- 🚀 **Sin Backend**: Todo funciona en el navegador, rápido y seguro
-- 🌐 **Offline First**: Trabaja sin conexión gracias al Service Worker
 ---
 
 ## 📦 Categorías de Herramientas

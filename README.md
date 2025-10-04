@@ -1,4 +1,4 @@
-<img width="1024" height="329" alt="image" src="https://github.com/user-attachments/assets/030cba57-ab61-45b6-85c0-c331f02f9077" />
+<img width="5400" height="1730" alt="Banner" src="https://github.com/user-attachments/assets/84f9bc1a-7ca8-41bc-8c39-6689ac9f01d4" />
 
 # ⚡ DigitalForge
 

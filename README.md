@@ -538,8 +538,6 @@ DigitalForge/
     └── formulas-list.html           # Lista de fórmulas
 ```
 
-Para más detalles, consulta [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md)
-
 ---
 
 ## 🎨 Capturas de Pantalla

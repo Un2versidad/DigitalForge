@@ -3,7 +3,7 @@
 <div align="center">
 
 ![Version](https://img.shields.io/badge/version-1.0.0-white?style=for-the-badge)
-![License](https://img.shields.io/badge/license-MIT-pink?style=for-the-badge)
+![License](https://img.shields.io/badge/APACHE_2.0-pink?style=for-the-badge)
 ![Made in Panama](https://img.shields.io/badge/Made%20in-Panama%20🇵🇦-blue?style=for-the-badge)
 
 **Suite Profesional de Herramientas para Logica Digital**

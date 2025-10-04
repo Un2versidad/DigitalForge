@@ -608,28 +608,6 @@ Si encuentras un bug, por favor abre un issue con:
 
 ---
 
-## 📊 Estadísticas del Proyecto
-
-- 📦 **50+ Herramientas**: Calculadoras, convertidores, simuladores
-- 🎨 **10 Categorías**: Organizadas por funcionalidad
-- 🤖 **2 Módulos de IA**: Assistant + Generator
-- ☁️ **Cloud Storage**: Integración completa con Puter.js
-- 📱 **PWA**: Instalable en cualquier dispositivo
-- 🌐 **Offline**: Funciona sin conexión
-- 🇪🇸 **100% Español**: Interfaz y documentación
-
----
-
-## 🔗 Enlaces Útiles
-
-- [Documentación para Desarrolladores](DEVELOPER_GUIDE.md)
-- [Estructura del Proyecto](PROJECT_STRUCTURE.md)
-- [Changelog](CHANGELOG.md)
-- [Puter.js Documentation](https://docs.puter.com)
-- [Claude AI](https://www.anthropic.com/claude)
-
----
-
 <div align="center">
 
 **⚡ Hecho con ❤️ en Panama 🇵🇦 por fl2on**

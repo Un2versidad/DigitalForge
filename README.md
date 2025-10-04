@@ -31,7 +31,7 @@
 
 ## 🎯 Sobre el Proyecto
 
-**DigitalForge Pro** es una suite completa de herramientas para ingeniería digital que incluye más de **50+ utilidades profesionales** organizadas en **10 categorías diferentes**. Desde calculadoras binarias hasta generadores de código HDL con IA, todo lo que necesitas para trabajar con sistemas digitales en un solo lugar.
+**DigitalForge** es una suite completa de herramientas para ingeniería digital que incluye más de **50+ utilidades profesionales** organizadas en **10 categorías diferentes**. Desde calculadoras binarias hasta generadores de código HDL con IA, todo lo que necesitas para trabajar con sistemas digitales en un solo lugar.
 
 ### ✨ ¿Por qué DigitalForge?
 

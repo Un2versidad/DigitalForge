@@ -1,0 +1,592 @@
+<!-- Advanced Tools Tab -->
+<div id="advanced-content" class="tab-content hidden">
+    <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+            
+            <!-- Excess-3 Code -->
+            <div class="card p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-plus-circle text-3xl text-purple-400 mr-4"></i>
+                    <h3 class="text-xl font-bold">Excess-3 Code</h3>
+                </div>
+                <p class="text-white/70 mb-4 text-sm">Self-complementing BCD code</p>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Decimal</label>
+                        <input type="number" id="excess3Decimal" class="input-field" placeholder="7">
+                    </div>
+                    
+                    <button onclick="decimalToExcess3()" class="btn-primary w-full">
+                        <i class="fas fa-exchange-alt mr-2"></i>
+                        Convert to Excess-3
+                    </button>
+                    
+                    <div id="excess3Result" class="hidden p-4 glass rounded-xl">
+                        <div class="text-sm space-y-2">
+                            <div class="flex justify-between">
+                                <span class="text-white/70">Excess-3:</span>
+                                <span id="excess3Output" class="font-mono text-purple-400">-</span>
+                            </div>
+                            <div class="text-xs text-white/50">
+                                <i class="fas fa-info-circle mr-1"></i>
+                                BCD + 3 (0011)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 2421 Code -->
+            <div class="card p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-code-branch text-3xl text-blue-400 mr-4"></i>
+                    <h3 class="text-xl font-bold">2421 Code</h3>
+                </div>
+                <p class="text-white/70 mb-4 text-sm">Weighted BCD code</p>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Decimal Digit (0-9)</label>
+                        <input type="number" id="code2421Decimal" class="input-field" placeholder="5" min="0" max="9">
+                    </div>
+                    
+                    <button onclick="decimalTo2421()" class="btn-primary w-full">
+                        <i class="fas fa-exchange-alt mr-2"></i>
+                        Convert to 2421
+                    </button>
+                    
+                    <div id="code2421Result" class="hidden p-4 glass rounded-xl">
+                        <div class="text-sm space-y-2">
+                            <div class="flex justify-between">
+                                <span class="text-white/70">2421 Code:</span>
+                                <span id="code2421Output" class="font-mono text-blue-400">-</span>
+                            </div>
+                            <div class="text-xs text-white/50">
+                                <i class="fas fa-info-circle mr-1"></i>
+                                Weights: 2-4-2-1
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hamming Code Generator -->
+            <div class="card p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-shield-alt text-3xl text-green-400 mr-4"></i>
+                    <h3 class="text-xl font-bold">Hamming Code</h3>
+                </div>
+                <p class="text-white/70 mb-4 text-sm">Error detection and correction</p>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Data Bits</label>
+                        <input type="text" id="hammingData" class="input-field" placeholder="1011">
+                    </div>
+                    
+                    <button onclick="generateHamming()" class="btn-primary w-full">
+                        <i class="fas fa-shield-alt mr-2"></i>
+                        Generate Code
+                    </button>
+                    
+                    <div id="hammingResult" class="hidden p-4 glass rounded-xl text-sm space-y-2">
+                        <div class="flex justify-between">
+                            <span class="text-white/70">Hamming Code:</span>
+                            <span id="hammingCode" class="font-mono text-green-400">-</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-white/70">Parity Bits:</span>
+                            <span id="hammingParity" class="font-mono text-yellow-400">-</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CRC Calculator -->
+            <div class="card p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-check-circle text-3xl text-cyan-400 mr-4"></i>
+                    <h3 class="text-xl font-bold">CRC Calculator</h3>
+                </div>
+                <p class="text-white/70 mb-4 text-sm">Cyclic Redundancy Check</p>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Data (Hex)</label>
+                        <input type="text" id="crcData" class="input-field" placeholder="DEADBEEF">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Polynomial</label>
+                        <select id="crcPoly" class="input-field">
+                            <option value="crc16">CRC-16</option>
+                            <option value="crc32">CRC-32</option>
+                            <option value="crc8">CRC-8</option>
+                        </select>
+                    </div>
+                    
+                    <button onclick="calculateCRC()" class="btn-primary w-full">
+                        <i class="fas fa-calculator mr-2"></i>
+                        Calculate CRC
+                    </button>
+                    
+                    <div id="crcResult" class="hidden p-4 glass rounded-xl">
+                        <div class="text-center">
+                            <span class="text-white/70 text-sm">CRC:</span>
+                            <div id="crcOutput" class="font-mono font-bold text-xl text-cyan-400 mt-2">-</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Manchester Encoder -->
+            <div class="card p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-wave-square text-3xl text-pink-400 mr-4"></i>
+                    <h3 class="text-xl font-bold">Manchester Encoding</h3>
+                </div>
+                <p class="text-white/70 mb-4 text-sm">Line coding technique</p>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Data Bits</label>
+                        <input type="text" id="manchesterData" class="input-field" placeholder="10110">
+                    </div>
+                    
+                    <button onclick="manchesterEncode()" class="btn-primary w-full">
+                        <i class="fas fa-code mr-2"></i>
+                        Encode
+                    </button>
+                    
+                    <div id="manchesterResult" class="hidden p-4 glass rounded-xl">
+                        <div class="text-sm space-y-2">
+                            <div>
+                                <span class="text-white/70">Encoded:</span>
+                                <div id="manchesterEncoded" class="font-mono text-pink-400 mt-1 break-all">-</div>
+                            </div>
+                            <div class="text-xs text-white/50">
+                                <i class="fas fa-info-circle mr-1"></i>
+                                0→01, 1→10
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Parity Generator -->
+            <div class="card p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-equals text-3xl text-yellow-400 mr-4"></i>
+                    <h3 class="text-xl font-bold">Parity Generator</h3>
+                </div>
+                <p class="text-white/70 mb-4 text-sm">Even/Odd parity bits</p>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Data Bits</label>
+                        <input type="text" id="parityData" class="input-field" placeholder="1011010">
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="calculateParity('even')" class="btn-secondary text-sm">Even</button>
+                        <button onclick="calculateParity('odd')" class="btn-secondary text-sm">Odd</button>
+                    </div>
+                    
+                    <div id="parityResult" class="hidden p-4 glass rounded-xl text-sm space-y-2">
+                        <div class="flex justify-between">
+                            <span class="text-white/70">Parity Bit:</span>
+                            <span id="parityBit" class="font-mono text-yellow-400">-</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-white/70">With Parity:</span>
+                            <span id="parityFull" class="font-mono text-green-400">-</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Booth's Algorithm -->
+            <div class="card p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-times text-3xl text-red-400 mr-4"></i>
+                    <h3 class="text-xl font-bold">Booth's Multiplier</h3>
+                </div>
+                <p class="text-white/70 mb-4 text-sm">Binary multiplication algorithm</p>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Multiplicand</label>
+                        <input type="number" id="boothM" class="input-field" placeholder="5">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Multiplier</label>
+                        <input type="number" id="boothQ" class="input-field" placeholder="3">
+                    </div>
+                    
+                    <button onclick="boothMultiply()" class="btn-primary w-full">
+                        <i class="fas fa-calculator mr-2"></i>
+                        Multiply
+                    </button>
+                    
+                    <div id="boothResult" class="hidden p-4 glass rounded-xl text-sm space-y-2">
+                        <div class="flex justify-between">
+                            <span class="text-white/70">Result:</span>
+                            <span id="boothProduct" class="font-bold text-red-400">-</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-white/70">Binary:</span>
+                            <span id="boothBinary" class="font-mono text-green-400">-</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Karnaugh Map Solver -->
+            <div class="card p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-th text-3xl text-indigo-400 mr-4"></i>
+                    <h3 class="text-xl font-bold">K-Map Solver</h3>
+                </div>
+                <p class="text-white/70 mb-4 text-sm">Karnaugh map simplification</p>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Variables</label>
+                        <select id="kmapVars" class="input-field">
+                            <option value="2">2 Variables</option>
+                            <option value="3">3 Variables</option>
+                            <option value="4">4 Variables</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Minterms (comma separated)</label>
+                        <input type="text" id="kmapMinterms" class="input-field" placeholder="0,1,3,7">
+                    </div>
+                    
+                    <button onclick="solveKMap()" class="btn-primary w-full">
+                        <i class="fas fa-magic mr-2"></i>
+                        Simplify
+                    </button>
+                    
+                    <div id="kmapResult" class="hidden p-4 glass rounded-xl text-sm">
+                        <div class="text-white/70 mb-2">Simplified Expression:</div>
+                        <div id="kmapExpression" class="font-mono text-indigo-400 text-base">-</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Quine-McCluskey -->
+            <div class="card p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-compress-alt text-3xl text-teal-400 mr-4"></i>
+                    <h3 class="text-xl font-bold">Quine-McCluskey</h3>
+                </div>
+                <p class="text-white/70 mb-4 text-sm">Boolean minimization</p>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Minterms</label>
+                        <input type="text" id="qmMinterms" class="input-field" placeholder="0,1,2,5,6,7">
+                    </div>
+                    
+                    <button onclick="quineMcCluskey()" class="btn-primary w-full">
+                        <i class="fas fa-compress mr-2"></i>
+                        Minimize
+                    </button>
+                    
+                    <div id="qmResult" class="hidden p-4 glass rounded-xl text-sm space-y-2">
+                        <div>
+                            <span class="text-white/70">Prime Implicants:</span>
+                            <div id="qmPrimes" class="font-mono text-teal-400 mt-1 text-xs">-</div>
+                        </div>
+                        <div>
+                            <span class="text-white/70">Minimal Expression:</span>
+                            <div id="qmMinimal" class="font-mono text-green-400 mt-1">-</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- State Machine Encoder -->
+            <div class="card p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-project-diagram text-3xl text-orange-400 mr-4"></i>
+                    <h3 class="text-xl font-bold">FSM Encoder</h3>
+                </div>
+                <p class="text-white/70 mb-4 text-sm">Finite State Machine encoding</p>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Number of States</label>
+                        <input type="number" id="fsmStates" class="input-field" placeholder="5" min="2" max="16">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Encoding Type</label>
+                        <select id="fsmEncoding" class="input-field">
+                            <option value="binary">Binary</option>
+                            <option value="onehot">One-Hot</option>
+                            <option value="gray">Gray Code</option>
+                        </select>
+                    </div>
+                    
+                    <button onclick="encodeFSM()" class="btn-primary w-full">
+                        <i class="fas fa-code mr-2"></i>
+                        Encode States
+                    </button>
+                    
+                    <div id="fsmResult" class="hidden p-4 glass rounded-xl text-sm">
+                        <div class="text-white/70 mb-2">State Encoding:</div>
+                        <div id="fsmEncoded" class="font-mono text-orange-400 text-xs space-y-1">-</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Clock Domain Crossing -->
+            <div class="card p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-random text-3xl text-purple-400 mr-4"></i>
+                    <h3 class="text-xl font-bold">CDC Calculator</h3>
+                </div>
+                <p class="text-white/70 mb-4 text-sm">Clock Domain Crossing analysis</p>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Source Clock (MHz)</label>
+                        <input type="number" id="cdcSrcClk" class="input-field" placeholder="100">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Dest Clock (MHz)</label>
+                        <input type="number" id="cdcDstClk" class="input-field" placeholder="50">
+                    </div>
+                    
+                    <button onclick="analyzeCDC()" class="btn-primary w-full">
+                        <i class="fas fa-chart-line mr-2"></i>
+                        Analyze
+                    </button>
+                    
+                    <div id="cdcResult" class="hidden p-4 glass rounded-xl text-sm space-y-2">
+                        <div class="flex justify-between">
+                            <span class="text-white/70">Ratio:</span>
+                            <span id="cdcRatio" class="font-bold text-purple-400">-</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-white/70">Sync Stages:</span>
+                            <span id="cdcStages" class="font-bold text-green-400">-</span>
+                        </div>
+                        <div class="text-xs text-white/50">
+                            <i class="fas fa-exclamation-triangle mr-1"></i>
+                            Use 2-FF synchronizer minimum
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- LFSR Generator -->
+            <div class="card p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-dice text-3xl text-pink-400 mr-4"></i>
+                    <h3 class="text-xl font-bold">LFSR Generator</h3>
+                </div>
+                <p class="text-white/70 mb-4 text-sm">Linear Feedback Shift Register</p>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Bits</label>
+                        <select id="lfsrBits" class="input-field">
+                            <option value="4">4-bit</option>
+                            <option value="8">8-bit</option>
+                            <option value="16">16-bit</option>
+                            <option value="32">32-bit</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Seed (Hex)</label>
+                        <input type="text" id="lfsrSeed" class="input-field" placeholder="ABCD">
+                    </div>
+                    
+                    <button onclick="generateLFSR()" class="btn-primary w-full">
+                        <i class="fas fa-random mr-2"></i>
+                        Generate Sequence
+                    </button>
+                    
+                    <div id="lfsrResult" class="hidden p-4 glass rounded-xl text-sm space-y-2">
+                        <div>
+                            <span class="text-white/70">Polynomial:</span>
+                            <div id="lfsrPoly" class="font-mono text-pink-400 mt-1 text-xs">-</div>
+                        </div>
+                        <div>
+                            <span class="text-white/70">Sequence (first 10):</span>
+                            <div id="lfsrSeq" class="font-mono text-green-400 mt-1 text-xs break-all">-</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Metastability Calculator -->
+            <div class="card p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-exclamation-triangle text-3xl text-yellow-400 mr-4"></i>
+                    <h3 class="text-xl font-bold">Metastability</h3>
+                </div>
+                <p class="text-white/70 mb-4 text-sm">MTBF calculation</p>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Clock Freq (MHz)</label>
+                        <input type="number" id="metaClk" class="input-field" placeholder="100">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Data Rate (MHz)</label>
+                        <input type="number" id="metaData" class="input-field" placeholder="10">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Sync Stages</label>
+                        <input type="number" id="metaStages" class="input-field" placeholder="2" min="1" max="5">
+                    </div>
+                    
+                    <button onclick="calculateMTBF()" class="btn-primary w-full">
+                        <i class="fas fa-calculator mr-2"></i>
+                        Calculate MTBF
+                    </button>
+                    
+                    <div id="metaResult" class="hidden p-4 glass rounded-xl text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-white/70">MTBF:</span>
+                            <span id="metaMTBF" class="font-bold text-yellow-400">-</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Voltage Divider -->
+            <div class="card p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-divide text-3xl text-blue-400 mr-4"></i>
+                    <h3 class="text-xl font-bold">Voltage Divider</h3>
+                </div>
+                <p class="text-white/70 mb-4 text-sm">Resistor divider calculator</p>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Input Voltage (V)</label>
+                        <input type="number" step="0.1" id="vdivVin" class="input-field" placeholder="5">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Output Voltage (V)</label>
+                        <input type="number" step="0.1" id="vdivVout" class="input-field" placeholder="3.3">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium mb-2">R1 (Ω)</label>
+                        <input type="number" id="vdivR1" class="input-field" placeholder="1000">
+                    </div>
+                    
+                    <button onclick="calculateVoltageDivider()" class="btn-primary w-full">
+                        <i class="fas fa-calculator mr-2"></i>
+                        Calculate R2
+                    </button>
+                    
+                    <div id="vdivResult" class="hidden p-4 glass rounded-xl text-sm space-y-2">
+                        <div class="flex justify-between">
+                            <span class="text-white/70">R2:</span>
+                            <span id="vdivR2" class="font-bold text-blue-400">-</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-white/70">Current:</span>
+                            <span id="vdivCurrent" class="font-bold text-green-400">-</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- RC Time Constant -->
+            <div class="card p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-stopwatch text-3xl text-cyan-400 mr-4"></i>
+                    <h3 class="text-xl font-bold">RC Time Constant</h3>
+                </div>
+                <p class="text-white/70 mb-4 text-sm">τ = R × C</p>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Resistance (Ω)</label>
+                        <input type="number" id="rcR" class="input-field" placeholder="10000">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Capacitance (µF)</label>
+                        <input type="number" step="0.001" id="rcC" class="input-field" placeholder="10">
+                    </div>
+                    
+                    <button onclick="calculateRC()" class="btn-primary w-full">
+                        <i class="fas fa-calculator mr-2"></i>
+                        Calculate τ
+                    </button>
+                    
+                    <div id="rcResult" class="hidden p-4 glass rounded-xl text-sm space-y-2">
+                        <div class="flex justify-between">
+                            <span class="text-white/70">τ (Time Constant):</span>
+                            <span id="rcTau" class="font-bold text-cyan-400">-</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-white/70">5τ (99%):</span>
+                            <span id="rc5Tau" class="font-bold text-green-400">-</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- LED Current Limiter -->
+            <div class="card p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-lightbulb text-3xl text-yellow-400 mr-4"></i>
+                    <h3 class="text-xl font-bold">LED Resistor</h3>
+                </div>
+                <p class="text-white/70 mb-4 text-sm">Current limiting resistor</p>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Supply Voltage (V)</label>
+                        <input type="number" step="0.1" id="ledVs" class="input-field" placeholder="5">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium mb-2">LED Forward Voltage (V)</label>
+                        <input type="number" step="0.1" id="ledVf" class="input-field" placeholder="2">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium mb-2">LED Current (mA)</label>
+                        <input type="number" id="ledI" class="input-field" placeholder="20">
+                    </div>
+                    
+                    <button onclick="calculateLEDResistor()" class="btn-primary w-full">
+                        <i class="fas fa-calculator mr-2"></i>
+                        Calculate
+                    </button>
+                    
+                    <div id="ledResult" class="hidden p-4 glass rounded-xl text-sm space-y-2">
+                        <div class="flex justify-between">
+                            <span class="text-white/70">Resistor:</span>
+                            <span id="ledR" class="font-bold text-yellow-400">-</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-white/70">Power:</span>
+                            <span id="ledP" class="font-bold text-red-400">-</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>

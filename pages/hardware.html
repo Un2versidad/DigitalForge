@@ -1,0 +1,378 @@
+<!-- Hardware Tab -->
+<div id="hardware-content" class="tab-content hidden">
+    <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+            
+            <!-- Arduino Pin Calculator -->
+            <div class="card p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fab fa-arduino text-3xl text-cyan-400 mr-4"></i>
+                    <h3 class="text-xl font-bold">Arduino Pin Calculator</h3>
+                </div>
+                <p class="text-white/70 mb-4 text-sm">Calcula resistencias y voltajes para Arduino</p>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Voltaje de Entrada (V)</label>
+                        <input type="number" step="0.1" id="arduinoVin" class="input-field" placeholder="5">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Corriente Deseada (mA)</label>
+                        <input type="number" id="arduinoCurrent" class="input-field" placeholder="20">
+                    </div>
+                    
+                    <button onclick="calculateArduinoResistor()" class="btn-primary w-full">
+                        <i class="fas fa-calculator mr-2"></i>
+                        Calcular Resistencia
+                    </button>
+                    
+                    <div id="arduinoResult" class="hidden p-4 glass rounded-xl">
+                        <div class="text-sm space-y-2">
+                            <div class="flex justify-between">
+                                <span class="text-white/70">Resistencia:</span>
+                                <span id="arduinoR" class="font-bold text-cyan-400">-</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-white/70">Potencia:</span>
+                                <span id="arduinoP" class="font-bold text-yellow-400">-</span>
+                            </div>
+                            <div class="text-xs text-white/50 mt-2">
+                                <i class="fas fa-info-circle mr-1"></i>
+                                Usa resistencia estándar más cercana
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Raspberry Pi GPIO Calculator -->
+            <div class="card p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fab fa-raspberry-pi text-3xl text-pink-400 mr-4"></i>
+                    <h3 class="text-xl font-bold">Raspberry Pi GPIO</h3>
+                </div>
+                <p class="text-white/70 mb-4 text-sm">Calculadora de GPIO para Raspberry Pi</p>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Modelo</label>
+                        <select id="rpiModel" class="input-field">
+                            <option value="3.3">RPi 3/4/5 (3.3V)</option>
+                            <option value="3.3">RPi Zero (3.3V)</option>
+                            <option value="3.3">RPi Pico (3.3V)</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Corriente LED (mA)</label>
+                        <input type="number" id="rpiCurrent" class="input-field" placeholder="10">
+                    </div>
+                    
+                    <button onclick="calculateRPiResistor()" class="btn-primary w-full">
+                        <i class="fas fa-calculator mr-2"></i>
+                        Calcular
+                    </button>
+                    
+                    <div id="rpiResult" class="hidden p-4 glass rounded-xl text-sm space-y-2">
+                        <div class="flex justify-between">
+                            <span class="text-white/70">Resistencia:</span>
+                            <span id="rpiR" class="font-bold text-pink-400">-</span>
+                        </div>
+                        <div class="text-xs text-white/50">
+                            <i class="fas fa-exclamation-triangle mr-1"></i>
+                            Max 16mA por pin
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Basys3 FPGA Calculator -->
+            <div class="card p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-microchip text-3xl text-purple-400 mr-4"></i>
+                    <h3 class="text-xl font-bold">Basys3 FPGA</h3>
+                </div>
+                <p class="text-white/70 mb-4 text-sm">Calculadora para Digilent Basys3</p>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Clock Frequency (MHz)</label>
+                        <input type="number" id="basys3Clock" class="input-field" placeholder="100" value="100">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Divisor Deseado</label>
+                        <input type="number" id="basys3Divisor" class="input-field" placeholder="1000000">
+                    </div>
+                    
+                    <button onclick="calculateBasys3Clock()" class="btn-primary w-full">
+                        <i class="fas fa-calculator mr-2"></i>
+                        Calcular
+                    </button>
+                    
+                    <div id="basys3Result" class="hidden p-4 glass rounded-xl text-sm space-y-2">
+                        <div class="flex justify-between">
+                            <span class="text-white/70">Frecuencia Salida:</span>
+                            <span id="basys3Freq" class="font-bold text-purple-400">-</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-white/70">Período:</span>
+                            <span id="basys3Period" class="font-bold text-blue-400">-</span>
+                        </div>
+                        <div class="text-xs text-white/50">
+                            <i class="fas fa-info-circle mr-1"></i>
+                            Basys3: Artix-7 FPGA
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ESP32 Calculator -->
+            <div class="card p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-wifi text-3xl text-blue-400 mr-4"></i>
+                    <h3 class="text-xl font-bold">ESP32 Power</h3>
+                </div>
+                <p class="text-white/70 mb-4 text-sm">Calculadora de consumo ESP32</p>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Modo de Operación</label>
+                        <select id="esp32Mode" class="input-field" onchange="updateESP32Current()">
+                            <option value="240">Active WiFi (240mA)</option>
+                            <option value="160">Active BT (160mA)</option>
+                            <option value="80">Modem Sleep (80mA)</option>
+                            <option value="20">Light Sleep (20mA)</option>
+                            <option value="0.15">Deep Sleep (150µA)</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Tiempo Activo (horas)</label>
+                        <input type="number" id="esp32Time" class="input-field" placeholder="24">
+                    </div>
+                    
+                    <button onclick="calculateESP32Power()" class="btn-primary w-full">
+                        <i class="fas fa-calculator mr-2"></i>
+                        Calcular Consumo
+                    </button>
+                    
+                    <div id="esp32Result" class="hidden p-4 glass rounded-xl text-sm space-y-2">
+                        <div class="flex justify-between">
+                            <span class="text-white/70">Consumo:</span>
+                            <span id="esp32mAh" class="font-bold text-blue-400">-</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-white/70">Batería 2000mAh:</span>
+                            <span id="esp32Battery" class="font-bold text-green-400">-</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- STM32 Clock Calculator -->
+            <div class="card p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-microchip text-3xl text-orange-400 mr-4"></i>
+                    <h3 class="text-xl font-bold">STM32 Clock</h3>
+                </div>
+                <p class="text-white/70 mb-4 text-sm">Calculadora de clock STM32</p>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">HSE Frequency (MHz)</label>
+                        <input type="number" id="stm32HSE" class="input-field" placeholder="8" value="8">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium mb-2">PLL Multiplier</label>
+                        <input type="number" id="stm32PLL" class="input-field" placeholder="9" value="9">
+                    </div>
+                    
+                    <button onclick="calculateSTM32Clock()" class="btn-primary w-full">
+                        <i class="fas fa-calculator mr-2"></i>
+                        Calcular
+                    </button>
+                    
+                    <div id="stm32Result" class="hidden p-4 glass rounded-xl text-sm space-y-2">
+                        <div class="flex justify-between">
+                            <span class="text-white/70">SYSCLK:</span>
+                            <span id="stm32Sysclk" class="font-bold text-orange-400">-</span>
+                        </div>
+                        <div class="text-xs text-white/50">
+                            <i class="fas fa-info-circle mr-1"></i>
+                            Max: 72MHz (STM32F1)
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Logisim Circuit Analyzer -->
+            <div class="card p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-project-diagram text-3xl text-green-400 mr-4"></i>
+                    <h3 class="text-xl font-bold">Logisim Analyzer</h3>
+                </div>
+                <p class="text-white/70 mb-4 text-sm">Analiza complejidad de circuitos</p>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Número de Compuertas</label>
+                        <input type="number" id="logisimGates" class="input-field" placeholder="10">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Niveles de Lógica</label>
+                        <input type="number" id="logisimLevels" class="input-field" placeholder="3">
+                    </div>
+                    
+                    <button onclick="analyzeLogisimCircuit()" class="btn-primary w-full">
+                        <i class="fas fa-chart-line mr-2"></i>
+                        Analizar
+                    </button>
+                    
+                    <div id="logisimResult" class="hidden p-4 glass rounded-xl text-sm space-y-2">
+                        <div class="flex justify-between">
+                            <span class="text-white/70">Delay Estimado:</span>
+                            <span id="logisimDelay" class="font-bold text-green-400">-</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-white/70">Complejidad:</span>
+                            <span id="logisimComplexity" class="font-bold text-yellow-400">-</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- UART Baud Rate Calculator -->
+            <div class="card p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-exchange-alt text-3xl text-indigo-400 mr-4"></i>
+                    <h3 class="text-xl font-bold">UART Baud Rate</h3>
+                </div>
+                <p class="text-white/70 mb-4 text-sm">Calculadora de baud rate</p>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Clock Frequency (Hz)</label>
+                        <input type="number" id="uartClock" class="input-field" placeholder="16000000">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Baud Rate Deseado</label>
+                        <select id="uartBaud" class="input-field">
+                            <option value="9600">9600</option>
+                            <option value="19200">19200</option>
+                            <option value="38400">38400</option>
+                            <option value="57600">57600</option>
+                            <option value="115200" selected>115200</option>
+                        </select>
+                    </div>
+                    
+                    <button onclick="calculateUARTDivisor()" class="btn-primary w-full">
+                        <i class="fas fa-calculator mr-2"></i>
+                        Calcular Divisor
+                    </button>
+                    
+                    <div id="uartResult" class="hidden p-4 glass rounded-xl text-sm space-y-2">
+                        <div class="flex justify-between">
+                            <span class="text-white/70">Divisor:</span>
+                            <span id="uartDivisor" class="font-bold text-indigo-400">-</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-white/70">Error:</span>
+                            <span id="uartError" class="font-bold text-yellow-400">-</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- I2C Pull-up Calculator -->
+            <div class="card p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-link text-3xl text-teal-400 mr-4"></i>
+                    <h3 class="text-xl font-bold">I2C Pull-up</h3>
+                </div>
+                <p class="text-white/70 mb-4 text-sm">Calcula resistencias pull-up I2C</p>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Voltaje (V)</label>
+                        <select id="i2cVoltage" class="input-field">
+                            <option value="3.3">3.3V</option>
+                            <option value="5">5V</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Capacitancia Bus (pF)</label>
+                        <input type="number" id="i2cCapacitance" class="input-field" placeholder="400">
+                    </div>
+                    
+                    <button onclick="calculateI2CPullup()" class="btn-primary w-full">
+                        <i class="fas fa-calculator mr-2"></i>
+                        Calcular
+                    </button>
+                    
+                    <div id="i2cResult" class="hidden p-4 glass rounded-xl text-sm space-y-2">
+                        <div class="flex justify-between">
+                            <span class="text-white/70">R mínima:</span>
+                            <span id="i2cRmin" class="font-bold text-teal-400">-</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-white/70">R máxima:</span>
+                            <span id="i2cRmax" class="font-bold text-green-400">-</span>
+                        </div>
+                        <div class="text-xs text-white/50">
+                            <i class="fas fa-info-circle mr-1"></i>
+                            Recomendado: 4.7kΩ
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- PWM Calculator -->
+            <div class="card p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-wave-square text-3xl text-amber-400 mr-4"></i>
+                    <h3 class="text-xl font-bold">PWM Calculator</h3>
+                </div>
+                <p class="text-white/70 mb-4 text-sm">Calcula parámetros PWM</p>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Frecuencia PWM (Hz)</label>
+                        <input type="number" id="pwmFreq" class="input-field" placeholder="1000">
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Duty Cycle (%)</label>
+                        <input type="number" id="pwmDuty" class="input-field" placeholder="50" min="0" max="100">
+                    </div>
+                    
+                    <button onclick="calculatePWM()" class="btn-primary w-full">
+                        <i class="fas fa-calculator mr-2"></i>
+                        Calcular
+                    </button>
+                    
+                    <div id="pwmResult" class="hidden p-4 glass rounded-xl text-sm space-y-2">
+                        <div class="flex justify-between">
+                            <span class="text-white/70">Período:</span>
+                            <span id="pwmPeriod" class="font-bold text-amber-400">-</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-white/70">Tiempo ON:</span>
+                            <span id="pwmOn" class="font-bold text-green-400">-</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-white/70">Tiempo OFF:</span>
+                            <span id="pwmOff" class="font-bold text-red-400">-</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>

@@ -1,0 +1,223 @@
+<!-- NEW CALCULATORS TO ADD -->
+
+<!-- Shift Register Calculator -->
+<div class="card p-6">
+    <div class="flex items-center mb-4">
+        <i class="fas fa-arrows-alt-h text-3xl text-indigo-400 mr-4"></i>
+        <h3 class="text-xl font-bold">Shift Register</h3>
+    </div>
+    <p class="text-white/70 mb-4 text-sm">Calcula operaciones de shift</p>
+    
+    <div class="space-y-4">
+        <div>
+            <label class="block text-sm font-medium mb-2">Valor Binario</label>
+            <input type="text" id="shiftValue" class="input-field" placeholder="10110101">
+        </div>
+        
+        <div>
+            <label class="block text-sm font-medium mb-2">Posiciones</label>
+            <input type="number" id="shiftPositions" class="input-field" placeholder="2">
+        </div>
+        
+        <div class="grid grid-cols-2 gap-2">
+            <button onclick="shiftLeft()" class="btn-secondary text-sm">Shift Left</button>
+            <button onclick="shiftRight()" class="btn-secondary text-sm">Shift Right</button>
+        </div>
+        
+        <div id="shiftResult" class="hidden p-4 glass rounded-xl">
+            <div class="text-center">
+                <span class="text-white/70 text-sm">Resultado:</span>
+                <div id="shiftOutput" class="font-mono font-bold text-xl text-indigo-400 mt-2">-</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Multiplexer Calculator -->
+<div class="card p-6">
+    <div class="flex items-center mb-4">
+        <i class="fas fa-code-branch text-3xl text-teal-400 mr-4"></i>
+        <h3 class="text-xl font-bold">Multiplexer</h3>
+    </div>
+    <p class="text-white/70 mb-4 text-sm">Simula MUX 2:1, 4:1, 8:1</p>
+    
+    <div class="space-y-4">
+        <div>
+            <label class="block text-sm font-medium mb-2">Tipo</label>
+            <select id="muxType" class="input-field">
+                <option value="2">2:1 MUX</option>
+                <option value="4">4:1 MUX</option>
+                <option value="8">8:1 MUX</option>
+            </select>
+        </div>
+        
+        <div>
+            <label class="block text-sm font-medium mb-2">Entradas (separadas por coma)</label>
+            <input type="text" id="muxInputs" class="input-field" placeholder="0,1">
+        </div>
+        
+        <div>
+            <label class="block text-sm font-medium mb-2">Selector</label>
+            <input type="text" id="muxSelector" class="input-field" placeholder="0">
+        </div>
+        
+        <button onclick="calculateMux()" class="btn-primary w-full">
+            <i class="fas fa-calculator mr-2"></i>
+            Calcular Salida
+        </button>
+        
+        <div id="muxResult" class="hidden p-4 glass rounded-xl">
+            <div class="text-center">
+                <span class="text-white/70 text-sm">Salida:</span>
+                <div id="muxOutput" class="font-mono font-bold text-2xl text-teal-400 mt-2">-</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Decoder Calculator -->
+<div class="card p-6">
+    <div class="flex items-center mb-4">
+        <i class="fas fa-sitemap text-3xl text-orange-400 mr-4"></i>
+        <h3 class="text-xl font-bold">Decoder</h3>
+    </div>
+    <p class="text-white/70 mb-4 text-sm">Decodificador 2:4, 3:8, 4:16</p>
+    
+    <div class="space-y-4">
+        <div>
+            <label class="block text-sm font-medium mb-2">Tipo</label>
+            <select id="decoderType" class="input-field">
+                <option value="2">2:4 Decoder</option>
+                <option value="3">3:8 Decoder</option>
+                <option value="4">4:16 Decoder</option>
+            </select>
+        </div>
+        
+        <div>
+            <label class="block text-sm font-medium mb-2">Entrada Binaria</label>
+            <input type="text" id="decoderInput" class="input-field" placeholder="10">
+        </div>
+        
+        <button onclick="calculateDecoder()" class="btn-primary w-full">
+            <i class="fas fa-calculator mr-2"></i>
+            Decodificar
+        </button>
+        
+        <div id="decoderResult" class="hidden p-4 glass rounded-xl text-sm">
+            <div>
+                <span class="text-white/70">Salidas:</span>
+                <div id="decoderOutput" class="font-mono text-orange-400 mt-2">-</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Priority Encoder -->
+<div class="card p-6">
+    <div class="flex items-center mb-4">
+        <i class="fas fa-sort-amount-down text-3xl text-red-400 mr-4"></i>
+        <h3 class="text-xl font-bold">Priority Encoder</h3>
+    </div>
+    <p class="text-white/70 mb-4 text-sm">Codificador con prioridad</p>
+    
+    <div class="space-y-4">
+        <div>
+            <label class="block text-sm font-medium mb-2">Entradas (8 bits)</label>
+            <input type="text" id="encoderInput" class="input-field" placeholder="00100000">
+        </div>
+        
+        <button onclick="calculatePriorityEncoder()" class="btn-primary w-full">
+            <i class="fas fa-calculator mr-2"></i>
+            Codificar
+        </button>
+        
+        <div id="encoderResult" class="hidden p-4 glass rounded-xl text-sm space-y-2">
+            <div class="flex justify-between">
+                <span class="text-white/70">Salida:</span>
+                <span id="encoderOutput" class="font-mono text-red-400">-</span>
+            </div>
+            <div class="flex justify-between">
+                <span class="text-white/70">Posición:</span>
+                <span id="encoderPosition" class="font-bold text-green-400">-</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Comparator -->
+<div class="card p-6">
+    <div class="flex items-center mb-4">
+        <i class="fas fa-not-equal text-3xl text-lime-400 mr-4"></i>
+        <h3 class="text-xl font-bold">Comparador</h3>
+    </div>
+    <p class="text-white/70 mb-4 text-sm">Compara dos números binarios</p>
+    
+    <div class="space-y-4">
+        <div>
+            <label class="block text-sm font-medium mb-2">Número A</label>
+            <input type="text" id="compA" class="input-field" placeholder="1010">
+        </div>
+        
+        <div>
+            <label class="block text-sm font-medium mb-2">Número B</label>
+            <input type="text" id="compB" class="input-field" placeholder="1100">
+        </div>
+        
+        <button onclick="compareBinary()" class="btn-primary w-full">
+            <i class="fas fa-calculator mr-2"></i>
+            Comparar
+        </button>
+        
+        <div id="compResult" class="hidden p-4 glass rounded-xl text-sm space-y-2">
+            <div class="flex justify-between">
+                <span class="text-white/70">A = B:</span>
+                <span id="compEqual" class="font-bold">-</span>
+            </div>
+            <div class="flex justify-between">
+                <span class="text-white/70">A > B:</span>
+                <span id="compGreater" class="font-bold">-</span>
+            </div>
+            <div class="flex justify-between">
+                <span class="text-white/70">A < B:</span>
+                <span id="compLess" class="font-bold">-</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Adder/Subtractor -->
+<div class="card p-6">
+    <div class="flex items-center mb-4">
+        <i class="fas fa-plus-minus text-3xl text-cyan-400 mr-4"></i>
+        <h3 class="text-xl font-bold">Sumador/Restador</h3>
+    </div>
+    <p class="text-white/70 mb-4 text-sm">Suma y resta binaria con carry</p>
+    
+    <div class="space-y-4">
+        <div>
+            <label class="block text-sm font-medium mb-2">Número A</label>
+            <input type="text" id="adderA" class="input-field" placeholder="1010">
+        </div>
+        
+        <div>
+            <label class="block text-sm font-medium mb-2">Número B</label>
+            <input type="text" id="adderB" class="input-field" placeholder="0110">
+        </div>
+        
+        <div class="grid grid-cols-2 gap-2">
+            <button onclick="binaryAdd()" class="btn-secondary text-sm">Sumar</button>
+            <button onclick="binarySubtract()" class="btn-secondary text-sm">Restar</button>
+        </div>
+        
+        <div id="adderResult" class="hidden p-4 glass rounded-xl text-sm space-y-2">
+            <div class="flex justify-between">
+                <span class="text-white/70">Resultado:</span>
+                <span id="adderOutput" class="font-mono text-cyan-400">-</span>
+            </div>
+            <div class="flex justify-between">
+                <span class="text-white/70">Carry/Borrow:</span>
+                <span id="adderCarry" class="font-bold text-yellow-400">-</span>
+            </div>
+        </div>
+    </div>
+</div>

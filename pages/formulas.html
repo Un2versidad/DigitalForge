@@ -1,0 +1,506 @@
+<!-- FORMULAS COLLECTION -->
+
+<!-- Ohm's Law -->
+<div class="card p-6 formula-card" data-category="power" data-keywords="ohm law voltage current resistance">
+    <div class="flex items-center mb-4">
+        <i class="fas fa-bolt text-3xl text-yellow-400 mr-4"></i>
+        <h3 class="text-xl font-bold">Ley de Ohm</h3>
+    </div>
+    <div class="bg-black/30 p-4 rounded-lg mb-3">
+        <div class="text-center text-lg">
+            $$V = I \cdot R$$
+        </div>
+    </div>
+    <p class="text-sm text-white/70 mb-2">Donde:</p>
+    <ul class="text-xs text-white/60 space-y-1">
+        <li>• <strong>V</strong>: Voltaje (Volts)</li>
+        <li>• <strong>I</strong>: Corriente (Amperes)</li>
+        <li>• <strong>R</strong>: Resistencia (Ohms)</li>
+    </ul>
+</div>
+
+<!-- Power Formula -->
+<div class="card p-6 formula-card" data-category="power" data-keywords="power watt voltage current">
+    <div class="flex items-center mb-4">
+        <i class="fas fa-plug text-3xl text-red-400 mr-4"></i>
+        <h3 class="text-xl font-bold">Potencia Eléctrica</h3>
+    </div>
+    <div class="bg-black/30 p-4 rounded-lg mb-3">
+        <div class="text-center text-lg">
+            $$P = V \cdot I = I^2 \cdot R = \frac{V^2}{R}$$
+        </div>
+    </div>
+    <p class="text-sm text-white/70">Potencia en Watts</p>
+</div>
+
+<!-- Capacitor Energy -->
+<div class="card p-6 formula-card" data-category="power" data-keywords="capacitor energy charge">
+    <div class="flex items-center mb-4">
+        <i class="fas fa-battery-half text-3xl text-blue-400 mr-4"></i>
+        <h3 class="text-xl font-bold">Energía en Capacitor</h3>
+    </div>
+    <div class="bg-black/30 p-4 rounded-lg mb-3">
+        <div class="text-center text-lg">
+            $$E = \frac{1}{2} C V^2$$
+        </div>
+    </div>
+    <p class="text-sm text-white/70 mb-2">Donde:</p>
+    <ul class="text-xs text-white/60 space-y-1">
+        <li>• <strong>E</strong>: Energía (Joules)</li>
+        <li>• <strong>C</strong>: Capacitancia (Farads)</li>
+        <li>• <strong>V</strong>: Voltaje (Volts)</li>
+    </ul>
+</div>
+
+<!-- Inductor Energy -->
+<div class="card p-6 formula-card" data-category="power" data-keywords="inductor energy magnetic">
+    <div class="flex items-center mb-4">
+        <i class="fas fa-magnet text-3xl text-indigo-400 mr-4"></i>
+        <h3 class="text-xl font-bold">Energía en Inductor</h3>
+    </div>
+    <div class="bg-black/30 p-4 rounded-lg mb-3">
+        <div class="text-center text-lg">
+            $$E = \frac{1}{2} L I^2$$
+        </div>
+    </div>
+    <p class="text-sm text-white/70 mb-2">Donde:</p>
+    <ul class="text-xs text-white/60 space-y-1">
+        <li>• <strong>L</strong>: Inductancia (Henrys)</li>
+        <li>• <strong>I</strong>: Corriente (Amperes)</li>
+    </ul>
+</div>
+
+<!-- Amdahl's Law -->
+<div class="card p-6 formula-card" data-category="digital-logic" data-keywords="amdahl speedup parallel">
+    <div class="flex items-center mb-4">
+        <i class="fas fa-tachometer-alt text-3xl text-green-400 mr-4"></i>
+        <h3 class="text-xl font-bold">Ley de Amdahl</h3>
+    </div>
+    <div class="bg-black/30 p-4 rounded-lg mb-3">
+        <div class="text-center text-lg">
+            $$Speedup = \frac{1}{(1-P) + \frac{P}{N}}$$
+        </div>
+    </div>
+    <p class="text-sm text-white/70 mb-2">Donde:</p>
+    <ul class="text-xs text-white/60 space-y-1">
+        <li>• <strong>P</strong>: Fracción paralelizable</li>
+        <li>• <strong>N</strong>: Número de procesadores</li>
+    </ul>
+</div>
+
+<!-- Shannon Capacity -->
+<div class="card p-6 formula-card" data-category="frequency" data-keywords="shannon capacity bandwidth noise">
+    <div class="flex items-center mb-4">
+        <i class="fas fa-signal text-3xl text-teal-400 mr-4"></i>
+        <h3 class="text-xl font-bold">Capacidad de Shannon</h3>
+    </div>
+    <div class="bg-black/30 p-4 rounded-lg mb-3">
+        <div class="text-center text-lg">
+            $$C = B \log_2(1 + SNR)$$
+        </div>
+    </div>
+    <p class="text-sm text-white/70 mb-2">Donde:</p>
+    <ul class="text-xs text-white/60 space-y-1">
+        <li>• <strong>C</strong>: Capacidad (bits/s)</li>
+        <li>• <strong>B</strong>: Ancho de banda (Hz)</li>
+        <li>• <strong>SNR</strong>: Relación señal/ruido</li>
+    </ul>
+</div>
+
+<!-- Nyquist Rate -->
+<div class="card p-6 formula-card" data-category="frequency" data-keywords="nyquist sampling rate">
+    <div class="flex items-center mb-4">
+        <i class="fas fa-wave-square text-3xl text-orange-400 mr-4"></i>
+        <h3 class="text-xl font-bold">Tasa de Nyquist</h3>
+    </div>
+    <div class="bg-black/30 p-4 rounded-lg mb-3">
+        <div class="text-center text-lg">
+            $$f_s \geq 2 \cdot f_{max}$$
+        </div>
+    </div>
+    <p class="text-sm text-white/70">Frecuencia de muestreo mínima</p>
+</div>
+
+<!-- CPI Formula -->
+<div class="card p-6 formula-card" data-category="digital-logic" data-keywords="cpi cycles instruction performance">
+    <div class="flex items-center mb-4">
+        <i class="fas fa-microchip text-3xl text-pink-400 mr-4"></i>
+        <h3 class="text-xl font-bold">CPI (Cycles Per Instruction)</h3>
+    </div>
+    <div class="bg-black/30 p-4 rounded-lg mb-3">
+        <div class="text-center text-lg">
+            $$CPI = \frac{Cycles}{Instructions}$$
+        </div>
+    </div>
+    <p class="text-sm text-white/70">Rendimiento del procesador</p>
+</div>
+
+<!-- MIPS -->
+<div class="card p-6 formula-card" data-category="digital-logic" data-keywords="mips performance instructions">
+    <div class="flex items-center mb-4">
+        <i class="fas fa-rocket text-3xl text-red-400 mr-4"></i>
+        <h3 class="text-xl font-bold">MIPS</h3>
+    </div>
+    <div class="bg-black/30 p-4 rounded-lg mb-3">
+        <div class="text-center text-lg">
+            $$MIPS = \frac{f_{clock}}{CPI \times 10^6}$$
+        </div>
+    </div>
+    <p class="text-sm text-white/70">Millones de instrucciones por segundo</p>
+</div>
+
+<!-- Execution Time -->
+<div class="card p-6 formula-card" data-category="timing" data-keywords="execution time performance">
+    <div class="flex items-center mb-4">
+        <i class="fas fa-hourglass-half text-3xl text-amber-400 mr-4"></i>
+        <h3 class="text-xl font-bold">Tiempo de Ejecución</h3>
+    </div>
+    <div class="bg-black/30 p-4 rounded-lg mb-3">
+        <div class="text-center text-lg">
+            $$T = \frac{Instructions \times CPI}{f_{clock}}$$
+        </div>
+    </div>
+    <p class="text-sm text-white/70">Tiempo total de ejecución</p>
+</div>
+
+<!-- Cache Miss Rate -->
+<div class="card p-6 formula-card" data-category="memory" data-keywords="cache miss rate memory">
+    <div class="flex items-center mb-4">
+        <i class="fas fa-database text-3xl text-cyan-400 mr-4"></i>
+        <h3 class="text-xl font-bold">Cache Miss Rate</h3>
+    </div>
+    <div class="bg-black/30 p-4 rounded-lg mb-3">
+        <div class="text-center text-lg">
+            $$Miss\ Rate = \frac{Misses}{Accesses}$$
+        </div>
+    </div>
+    <p class="text-sm text-white/70">Tasa de fallos de caché</p>
+</div>
+
+<!-- Effective Access Time -->
+<div class="card p-6 formula-card" data-category="memory timing" data-keywords="access time cache memory">
+    <div class="flex items-center mb-4">
+        <i class="fas fa-clock text-3xl text-lime-400 mr-4"></i>
+        <h3 class="text-xl font-bold">Tiempo de Acceso Efectivo</h3>
+    </div>
+    <div class="bg-black/30 p-4 rounded-lg mb-3">
+        <div class="text-center text-lg">
+            $$T_{eff} = H \cdot T_c + (1-H) \cdot T_m$$
+        </div>
+    </div>
+    <p class="text-sm text-white/70 mb-2">Donde:</p>
+    <ul class="text-xs text-white/60 space-y-1">
+        <li>• <strong>H</strong>: Hit rate</li>
+        <li>• <strong>T<sub>c</sub></strong>: Tiempo caché</li>
+        <li>• <strong>T<sub>m</sub></strong>: Tiempo memoria</li>
+    </ul>
+</div>
+
+<!-- Bandwidth-Delay Product -->
+<div class="card p-6 formula-card" data-category="frequency" data-keywords="bandwidth delay product network">
+    <div class="flex items-center mb-4">
+        <i class="fas fa-network-wired text-3xl text-purple-400 mr-4"></i>
+        <h3 class="text-xl font-bold">Bandwidth-Delay Product</h3>
+    </div>
+    <div class="bg-black/30 p-4 rounded-lg mb-3">
+        <div class="text-center text-lg">
+            $$BDP = Bandwidth \times RTT$$
+        </div>
+    </div>
+    <p class="text-sm text-white/70">Capacidad del "pipe" de red</p>
+</div>
+
+<!-- Speedup Formula -->
+<div class="card p-6 formula-card" data-category="digital-logic" data-keywords="speedup performance optimization">
+    <div class="flex items-center mb-4">
+        <i class="fas fa-fast-forward text-3xl text-green-400 mr-4"></i>
+        <h3 class="text-xl font-bold">Speedup</h3>
+    </div>
+    <div class="bg-black/30 p-4 rounded-lg mb-3">
+        <div class="text-center text-lg">
+            $$Speedup = \frac{T_{old}}{T_{new}}$$
+        </div>
+    </div>
+    <p class="text-sm text-white/70">Mejora de rendimiento</p>
+</div>
+
+<!-- Efficiency -->
+<div class="card p-6 formula-card" data-category="digital-logic" data-keywords="efficiency parallel processors">
+    <div class="flex items-center mb-4">
+        <i class="fas fa-chart-line text-3xl text-blue-400 mr-4"></i>
+        <h3 class="text-xl font-bold">Eficiencia</h3>
+    </div>
+    <div class="bg-black/30 p-4 rounded-lg mb-3">
+        <div class="text-center text-lg">
+            $$Efficiency = \frac{Speedup}{N} \times 100\%$$
+        </div>
+    </div>
+    <p class="text-sm text-white/70">Eficiencia de paralelización</p>
+</div>
+
+<!-- Little's Law -->
+<div class="card p-6 formula-card" data-category="digital-logic" data-keywords="little law queue theory">
+    <div class="flex items-center mb-4">
+        <i class="fas fa-list-ol text-3xl text-yellow-400 mr-4"></i>
+        <h3 class="text-xl font-bold">Ley de Little</h3>
+    </div>
+    <div class="bg-black/30 p-4 rounded-lg mb-3">
+        <div class="text-center text-lg">
+            $$L = \lambda \cdot W$$
+        </div>
+    </div>
+    <p class="text-sm text-white/70 mb-2">Donde:</p>
+    <ul class="text-xs text-white/60 space-y-1">
+        <li>• <strong>L</strong>: Items en sistema</li>
+        <li>• <strong>λ</strong>: Tasa de llegada</li>
+        <li>• <strong>W</strong>: Tiempo en sistema</li>
+    </ul>
+</div>
+
+<!-- Resistors in Series -->
+<div class="card p-6 formula-card" data-category="power" data-keywords="resistor series circuit">
+    <div class="flex items-center mb-4">
+        <i class="fas fa-minus text-3xl text-orange-400 mr-4"></i>
+        <h3 class="text-xl font-bold">Resistencias en Serie</h3>
+    </div>
+    <div class="bg-black/30 p-4 rounded-lg mb-3">
+        <div class="text-center text-lg">
+            $$R_{total} = R_1 + R_2 + R_3 + ...$$
+        </div>
+    </div>
+    <p class="text-sm text-white/70">Suma directa</p>
+</div>
+
+<!-- Resistors in Parallel -->
+<div class="card p-6 formula-card" data-category="power" data-keywords="resistor parallel circuit">
+    <div class="flex items-center mb-4">
+        <i class="fas fa-equals text-3xl text-teal-400 mr-4"></i>
+        <h3 class="text-xl font-bold">Resistencias en Paralelo</h3>
+    </div>
+    <div class="bg-black/30 p-4 rounded-lg mb-3">
+        <div class="text-center text-lg">
+            $$\frac{1}{R_{total}} = \frac{1}{R_1} + \frac{1}{R_2} + ...$$
+        </div>
+    </div>
+    <p class="text-sm text-white/70">Inverso de la suma de inversos</p>
+</div>
+
+<!-- Capacitors in Series -->
+<div class="card p-6 formula-card" data-category="power" data-keywords="capacitor series circuit">
+    <div class="flex items-center mb-4">
+        <i class="fas fa-battery-quarter text-3xl text-indigo-400 mr-4"></i>
+        <h3 class="text-xl font-bold">Capacitores en Serie</h3>
+    </div>
+    <div class="bg-black/30 p-4 rounded-lg mb-3">
+        <div class="text-center text-lg">
+            $$\frac{1}{C_{total}} = \frac{1}{C_1} + \frac{1}{C_2} + ...$$
+        </div>
+    </div>
+    <p class="text-sm text-white/70">Inverso de la suma de inversos</p>
+</div>
+
+<!-- Capacitors in Parallel -->
+<div class="card p-6 formula-card" data-category="power" data-keywords="capacitor parallel circuit">
+    <div class="flex items-center mb-4">
+        <i class="fas fa-battery-three-quarters text-3xl text-pink-400 mr-4"></i>
+        <h3 class="text-xl font-bold">Capacitores en Paralelo</h3>
+    </div>
+    <div class="bg-black/30 p-4 rounded-lg mb-3">
+        <div class="text-center text-lg">
+            $$C_{total} = C_1 + C_2 + C_3 + ...$$
+        </div>
+    </div>
+    <p class="text-sm text-white/70">Suma directa</p>
+</div>
+
+<!-- Reactance Capacitive -->
+<div class="card p-6 formula-card" data-category="frequency power" data-keywords="reactance capacitive impedance">
+    <div class="flex items-center mb-4">
+        <i class="fas fa-wave-square text-3xl text-cyan-400 mr-4"></i>
+        <h3 class="text-xl font-bold">Reactancia Capacitiva</h3>
+    </div>
+    <div class="bg-black/30 p-4 rounded-lg mb-3">
+        <div class="text-center text-lg">
+            $$X_C = \frac{1}{2\pi f C}$$
+        </div>
+    </div>
+    <p class="text-sm text-white/70">Oposición al cambio de voltaje</p>
+</div>
+
+<!-- Reactance Inductive -->
+<div class="card p-6 formula-card" data-category="frequency power" data-keywords="reactance inductive impedance">
+    <div class="flex items-center mb-4">
+        <i class="fas fa-wave-square text-3xl text-purple-400 mr-4"></i>
+        <h3 class="text-xl font-bold">Reactancia Inductiva</h3>
+    </div>
+    <div class="bg-black/30 p-4 rounded-lg mb-3">
+        <div class="text-center text-lg">
+            $$X_L = 2\pi f L$$
+        </div>
+    </div>
+    <p class="text-sm text-white/70">Oposición al cambio de corriente</p>
+</div>
+
+<!-- Impedance -->
+<div class="card p-6 formula-card" data-category="power" data-keywords="impedance resistance reactance">
+    <div class="flex items-center mb-4">
+        <i class="fas fa-project-diagram text-3xl text-red-400 mr-4"></i>
+        <h3 class="text-xl font-bold">Impedancia</h3>
+    </div>
+    <div class="bg-black/30 p-4 rounded-lg mb-3">
+        <div class="text-center text-lg">
+            $$Z = \sqrt{R^2 + (X_L - X_C)^2}$$
+        </div>
+    </div>
+    <p class="text-sm text-white/70">Oposición total en AC</p>
+</div>
+
+<!-- Resonant Frequency -->
+<div class="card p-6 formula-card" data-category="frequency" data-keywords="resonance frequency LC circuit">
+    <div class="flex items-center mb-4">
+        <i class="fas fa-broadcast-tower text-3xl text-green-400 mr-4"></i>
+        <h3 class="text-xl font-bold">Frecuencia de Resonancia</h3>
+    </div>
+    <div class="bg-black/30 p-4 rounded-lg mb-3">
+        <div class="text-center text-lg">
+            $$f_0 = \frac{1}{2\pi\sqrt{LC}}$$
+        </div>
+    </div>
+    <p class="text-sm text-white/70">Circuito LC resonante</p>
+</div>
+
+<!-- Quality Factor -->
+<div class="card p-6 formula-card" data-category="frequency" data-keywords="quality factor Q resonance">
+    <div class="flex items-center mb-4">
+        <i class="fas fa-chart-area text-3xl text-amber-400 mr-4"></i>
+        <h3 class="text-xl font-bold">Factor de Calidad (Q)</h3>
+    </div>
+    <div class="bg-black/30 p-4 rounded-lg mb-3">
+        <div class="text-center text-lg">
+            $$Q = \frac{f_0}{BW} = \frac{X_L}{R}$$
+        </div>
+    </div>
+    <p class="text-sm text-white/70">Selectividad del circuito</p>
+</div>
+
+<!-- Time Constant RL -->
+<div class="card p-6 formula-card" data-category="timing" data-keywords="time constant RL inductor">
+    <div class="flex items-center mb-4">
+        <i class="fas fa-clock text-3xl text-blue-400 mr-4"></i>
+        <h3 class="text-xl font-bold">Constante de Tiempo RL</h3>
+    </div>
+    <div class="bg-black/30 p-4 rounded-lg mb-3">
+        <div class="text-center text-lg">
+            $$\tau = \frac{L}{R}$$
+        </div>
+    </div>
+    <p class="text-sm text-white/70">Tiempo de carga/descarga RL</p>
+</div>
+
+<!-- Cutoff Frequency -->
+<div class="card p-6 formula-card" data-category="frequency" data-keywords="cutoff frequency filter">
+    <div class="flex items-center mb-4">
+        <i class="fas fa-filter text-3xl text-lime-400 mr-4"></i>
+        <h3 class="text-xl font-bold">Frecuencia de Corte</h3>
+    </div>
+    <div class="bg-black/30 p-4 rounded-lg mb-3">
+        <div class="text-center text-lg">
+            $$f_c = \frac{1}{2\pi RC}$$
+        </div>
+    </div>
+    <p class="text-sm text-white/70">Filtro RC pasa-bajas</p>
+</div>
+
+<!-- Gain (dB) -->
+<div class="card p-6 formula-card" data-category="power" data-keywords="gain decibel amplifier">
+    <div class="flex items-center mb-4">
+        <i class="fas fa-volume-up text-3xl text-orange-400 mr-4"></i>
+        <h3 class="text-xl font-bold">Ganancia (dB)</h3>
+    </div>
+    <div class="bg-black/30 p-4 rounded-lg mb-3">
+        <div class="text-center text-lg">
+            $$G_{dB} = 20 \log_{10}\left(\frac{V_{out}}{V_{in}}\right)$$
+        </div>
+    </div>
+    <p class="text-sm text-white/70">Ganancia en decibeles</p>
+</div>
+
+<!-- SNR -->
+<div class="card p-6 formula-card" data-category="power" data-keywords="snr signal noise ratio">
+    <div class="flex items-center mb-4">
+        <i class="fas fa-signal text-3xl text-teal-400 mr-4"></i>
+        <h3 class="text-xl font-bold">SNR (Signal-to-Noise Ratio)</h3>
+    </div>
+    <div class="bg-black/30 p-4 rounded-lg mb-3">
+        <div class="text-center text-lg">
+            $$SNR_{dB} = 10 \log_{10}\left(\frac{P_{signal}}{P_{noise}}\right)$$
+        </div>
+    </div>
+    <p class="text-sm text-white/70">Relación señal/ruido</p>
+</div>
+
+<!-- ADC Resolution -->
+<div class="card p-6 formula-card" data-category="digital-logic" data-keywords="adc resolution bits">
+    <div class="flex items-center mb-4">
+        <i class="fas fa-layer-group text-3xl text-indigo-400 mr-4"></i>
+        <h3 class="text-xl font-bold">Resolución ADC</h3>
+    </div>
+    <div class="bg-black/30 p-4 rounded-lg mb-3">
+        <div class="text-center text-lg">
+            $$Resolution = \frac{V_{ref}}{2^n}$$
+        </div>
+    </div>
+    <p class="text-sm text-white/70 mb-2">Donde:</p>
+    <ul class="text-xs text-white/60 space-y-1">
+        <li>• <strong>n</strong>: Número de bits</li>
+        <li>• <strong>V<sub>ref</sub></strong>: Voltaje de referencia</li>
+    </ul>
+</div>
+
+<!-- Duty Cycle -->
+<div class="card p-6 formula-card" data-category="frequency" data-keywords="duty cycle pwm pulse">
+    <div class="flex items-center mb-4">
+        <i class="fas fa-wave-square text-3xl text-pink-400 mr-4"></i>
+        <h3 class="text-xl font-bold">Duty Cycle</h3>
+    </div>
+    <div class="bg-black/30 p-4 rounded-lg mb-3">
+        <div class="text-center text-lg">
+            $$D = \frac{T_{on}}{T} \times 100\%$$
+        </div>
+    </div>
+    <p class="text-sm text-white/70">Ciclo de trabajo PWM</p>
+</div>
+
+<!-- Thermal Noise -->
+<div class="card p-6 formula-card" data-category="power" data-keywords="thermal noise johnson">
+    <div class="flex items-center mb-4">
+        <i class="fas fa-thermometer-half text-3xl text-red-400 mr-4"></i>
+        <h3 class="text-xl font-bold">Ruido Térmico (Johnson)</h3>
+    </div>
+    <div class="bg-black/30 p-4 rounded-lg mb-3">
+        <div class="text-center text-lg">
+            $$V_n = \sqrt{4kTRB}$$
+        </div>
+    </div>
+    <p class="text-sm text-white/70 mb-2">Donde:</p>
+    <ul class="text-xs text-white/60 space-y-1">
+        <li>• <strong>k</strong>: Constante de Boltzmann</li>
+        <li>• <strong>T</strong>: Temperatura (K)</li>
+        <li>• <strong>R</strong>: Resistencia</li>
+        <li>• <strong>B</strong>: Ancho de banda</li>
+    </ul>
+</div>
+
+<!-- Skin Depth -->
+<div class="card p-6 formula-card" data-category="frequency" data-keywords="skin depth effect conductor">
+    <div class="flex items-center mb-4">
+        <i class="fas fa-layer-group text-3xl text-cyan-400 mr-4"></i>
+        <h3 class="text-xl font-bold">Profundidad de Piel</h3>
+    </div>
+    <div class="bg-black/30 p-4 rounded-lg mb-3">
+        <div class="text-center text-lg">
+            $$\delta = \sqrt{\frac{2\rho}{\omega\mu}}$$
+        </div>
+    </div>
+    <p class="text-sm text-white/70">Efecto skin en conductores AC</p>
+</div>

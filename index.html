@@ -1,0 +1,1738 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigitalForge - Suite de Logica Digital</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Suite profesional de herramientas para Logica digital con calculadoras, generadores HDL, simuladores y convertidores">
+    <meta name="keywords"
+        content="ingeniería digital, VHDL, Verilog, calculadora binaria, HDL, circuitos digitales, simulador">
+    <meta name="author" content="DigitalForge Team">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="DigitalForge - Suite de Ingeniería Digital">
+    <meta property="og:description" content="Suite profesional de herramientas para ingeniería digital">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://">
+    <meta property="og:image"
+        content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E⚡%3C/text%3E%3C/svg%3E">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="DigitalForge Pro">
+    <meta name="twitter:description" content="Suite profesional de herramientas para ingeniería digital">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E⚡%3C/text%3E%3C/svg%3E">
+    <link rel="apple-touch-icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E⚡%3C/text%3E%3C/svg%3E">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0ea5e9">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="DigitalForge">
+
+    <!-- External Resources -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://js.puter.com/v2/"></script>
+
+    <!-- MathJax for LaTeX formulas -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- Local Styles and Scripts -->
+    <link rel="stylesheet" href="assets/styles/main.css">
+    <script src="js/core/config.js" defer></script>
+    <script src="js/core/utils.js" defer></script>
+</head>
+
+<body class="bg-black text-white min-h-screen font-sans antialiased">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-xl border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-2">
+                    <div
+                        class="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-microchip text-white text-sm"></i>
+                    </div>
+                    <span class="text-lg font-bold text-white">DigitalForge</span>
+                </div>
+
+                <div class="flex items-center space-x-6">
+                    <button onclick="scrollToSection('features')"
+                        class="text-sm text-white/60 hover:text-white transition-colors hidden sm:block">Tools</button>
+                    <button onclick="switchTab('calculators')"
+                        class="text-sm text-white/60 hover:text-white transition-colors hidden sm:block">App</button>
+
+                    <div id="puter-status" class="hidden">
+                        <button id="puter-login-btn" class="text-sm text-white/60 hover:text-white transition-colors">
+                            <i class="fas fa-cloud mr-1"></i>
+                            <span class="hidden sm:inline">Cloud</span>
+                        </button>
+                        <div id="puter-user-info" class="hidden flex items-center space-x-2">
+                            <div
+                                class="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+                                <i class="fas fa-user text-white text-sm"></i>
+                            </div>
+                            <span id="puter-username" class="text-sm text-white hidden sm:inline"></span>
+                            <button id="puter-logout-btn" class="text-white/60 hover:text-red-400 transition-colors"
+                                title="Sign out">
+                                <i class="fas fa-sign-out-alt text-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <button onclick="switchTab('calculators')"
+                        class="px-6 py-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-sm font-semibold text-white hover:shadow-lg hover:shadow-purple-500/50 transition-all">
+                        Start Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-16">
+        <!-- Hero Section -->
+        <section class="relative py-20 px-4 sm:px-6 lg:px-8 overflow-hidden min-h-[70vh] flex items-center">
+            <div class="max-w-7xl mx-auto w-full">
+                <div class="text-center animate-fade-in">
+                    <!-- Badge -->
+                    <div class="inline-flex items-center px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8">
+                        <span class="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
+                        <span class="text-sm text-white/80">Professional Engineering Suite</span>
+                    </div>
+
+                    <!-- Main Heading -->
+                    <h1 class="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold mb-6 leading-tight">
+                        <span class="text-white">Digital Engineering</span><br>
+                        <span
+                            class="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-600 bg-clip-text text-transparent">Made
+                            Simple</span>
+                    </h1>
+
+                    <!-- Subtitle -->
+                    <p class="text-lg sm:text-xl lg:text-2xl text-white/60 max-w-4xl mx-auto leading-relaxed mb-12">
+                        Powerful HDL Generators, Circuit Simulators, and Digital Calculators.<br
+                            class="hidden sm:block">
+                        Built With Modern Web Technologies for Seamless Engineering Experience.
+                    </p>
+
+                    <!-- CTA Button -->
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+                        <button onclick="switchTab('calculators')"
+                            class="group relative px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full font-semibold text-white text-lg hover:shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 hover:scale-105">
+                            Start Engineering for Free
+                            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                        </button>
+                    </div>
+
+                    <!-- Features Pills -->
+                    <div class="flex flex-wrap justify-center gap-4 text-sm text-white/60">
+                        <div class="flex items-center">
+                            <span class="w-1.5 h-1.5 bg-green-400 rounded-full mr-2"></span>
+                            No Installation Required
+                        </div>
+                        <div class="flex items-center">
+                            <span class="w-1.5 h-1.5 bg-blue-400 rounded-full mr-2"></span>
+                            Web-Based
+                        </div>
+                        <div class="flex items-center">
+                            <span class="w-1.5 h-1.5 bg-purple-400 rounded-full mr-2"></span>
+                            Cloud Sync
+                        </div>
+                        <div class="flex items-center">
+                            <span class="w-1.5 h-1.5 bg-pink-400 rounded-full mr-2"></span>
+                            21+ Tools
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Background Effects -->
+            <div class="absolute inset-0 -z-10 overflow-hidden">
+                <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse">
+                </div>
+                <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-pink-500/20 rounded-full blur-3xl animate-pulse"
+                    style="animation-delay: 1s;"></div>
+            </div>
+        </section>
+
+        <!-- Tools Section -->
+        <section id="features" class="py-20 px-4 sm:px-6 lg:px-8 bg-black">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl sm:text-5xl font-bold mb-4">
+                        <span
+                            class="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-600 bg-clip-text text-transparent">Engineering
+                            Tools</span>
+                    </h2>
+                    <p class="text-lg text-white/50 max-w-2xl mx-auto">
+                        Complete suite of calculators, generators, and simulators
+                    </p>
+                </div>
+
+                <!-- Tab Navigation with Horizontal Scroll -->
+                <div class="mb-16 relative max-w-5xl mx-auto">
+                    <!-- Scroll Left Button -->
+                    <button id="scrollLeftBtn"
+                        class="absolute -left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white shadow-lg transition-all opacity-0 pointer-events-none"
+                        onmouseenter="this.style.transform='translateY(-50%) scale(1.1)'"
+                        onmouseleave="this.style.transform='translateY(-50%) scale(1)'">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+
+                    <div
+                        class="bg-white/5 backdrop-blur-xl rounded-2xl p-2 border border-white/10 relative overflow-hidden">
+                        <!-- Tabs Container -->
+                        <div id="tabsContainer" class="flex gap-2 overflow-x-hidden scroll-smooth">
+                            <button class="tab-btn active flex-shrink-0" data-tab="calculators">
+                                <i class="fas fa-calculator mb-2 text-xl"></i>
+                                <span class="text-xs font-medium">Calculators</span>
+                            </button>
+                            <button class="tab-btn flex-shrink-0" data-tab="generators">
+                                <i class="fas fa-code mb-2 text-xl"></i>
+                                <span class="text-xs font-medium">HDL</span>
+                            </button>
+                            <button class="tab-btn flex-shrink-0" data-tab="simulators">
+                                <i class="fas fa-microchip mb-2 text-xl"></i>
+                                <span class="text-xs font-medium">Simulators</span>
+                            </button>
+                            <button class="tab-btn flex-shrink-0" data-tab="circuit-designer">
+                                <i class="fas fa-project-diagram mb-2 text-xl"></i>
+                                <span class="text-xs font-medium">Circuit Designer</span>
+                            </button>
+                            <button class="tab-btn flex-shrink-0" data-tab="converters">
+                                <i class="fas fa-exchange-alt mb-2 text-xl"></i>
+                                <span class="text-xs font-medium">Converters</span>
+                            </button>
+                            <button class="tab-btn flex-shrink-0" data-tab="analyzers">
+                                <i class="fas fa-chart-line mb-2 text-xl"></i>
+                                <span class="text-xs font-medium">Analyzers</span>
+                            </button>
+                            <button class="tab-btn flex-shrink-0" data-tab="utilities">
+                                <i class="fas fa-tools mb-2 text-xl"></i>
+                                <span class="text-xs font-medium">Utilities</span>
+                            </button>
+                            <button class="tab-btn flex-shrink-0" data-tab="formulas">
+                                <i class="fas fa-square-root-alt mb-2 text-xl"></i>
+                                <span class="text-xs font-medium">Formulas</span>
+                            </button>
+                            <button class="tab-btn flex-shrink-0" data-tab="hardware">
+                                <i class="fas fa-microchip mb-2 text-xl"></i>
+                                <span class="text-xs font-medium">Hardware</span>
+                            </button>
+                            <button class="tab-btn flex-shrink-0" data-tab="advanced">
+                                <i class="fas fa-flask mb-2 text-xl"></i>
+                                <span class="text-xs font-medium">Advanced</span>
+                            </button>
+                            <button class="tab-btn flex-shrink-0" data-tab="ai-chat">
+                                <i class="fas fa-robot mb-2 text-xl"></i>
+                                <span class="text-xs font-medium">AI Assistant</span>
+                            </button>
+                        </div>
+
+                    </div>
+
+                    <!-- Scroll Right Button -->
+                    <button id="scrollRightBtn"
+                        class="absolute -right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white shadow-lg transition-all"
+                        onmouseenter="this.style.transform='translateY(-50%) scale(1.1)'"
+                        onmouseleave="this.style.transform='translateY(-50%) scale(1)'">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+
+                <!-- Calculators Tab -->
+                <div id="calculators-content" class="tab-content animate-fade-in">
+                    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+
+                        <!-- Conversor de Bases -->
+                        <div class="card p-6">
+                            <div class="flex items-center mb-4">
+                                <i class="fas fa-exchange-alt text-3xl text-primary-400 mr-4"></i>
+                                <h3 class="text-xl font-bold">Conversor de Bases</h3>
+                            </div>
+                            <p class="text-white/70 mb-4 text-sm">Convierte entre decimal, binario, octal y hexadecimal
+                            </p>
+
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Número Decimal</label>
+                                    <input type="number" id="decInput" class="input-field" placeholder="Ej: 255">
+                                </div>
+
+                                <button onclick="convertNumber()" class="btn-primary w-full">
+                                    <i class="fas fa-sync-alt mr-2"></i>
+                                    Convertir
+                                </button>
+
+                                <div id="conversionResults" class="hidden space-y-2 p-4 glass rounded-xl">
+                                    <div class="flex justify-between">
+                                        <span class="text-white/70">Binario:</span>
+                                        <span id="binResult" class="font-mono font-bold text-green-400">-</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-white/70">Octal:</span>
+                                        <span id="octResult" class="font-mono font-bold text-yellow-400">-</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-white/70">Hexadecimal:</span>
+                                        <span id="hexResult" class="font-mono font-bold text-blue-400">-</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Calculadora Binaria -->
+                        <div class="card p-6">
+                            <div class="flex items-center mb-4">
+                                <i class="fas fa-calculator text-3xl text-secondary-400 mr-4"></i>
+                                <h3 class="text-xl font-bold">Calculadora Binaria</h3>
+                            </div>
+                            <p class="text-white/70 mb-4 text-sm">Operaciones lógicas y aritméticas binarias</p>
+
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Binario A</label>
+                                    <input type="text" id="binA" class="input-field" placeholder="Ej: 1010">
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Binario B</label>
+                                    <input type="text" id="binB" class="input-field" placeholder="Ej: 1100">
+                                </div>
+
+                                <div class="grid grid-cols-2 gap-2">
+                                    <button onclick="binaryOp('AND')" class="btn-secondary text-sm">AND</button>
+                                    <button onclick="binaryOp('OR')" class="btn-secondary text-sm">OR</button>
+                                    <button onclick="binaryOp('XOR')" class="btn-secondary text-sm">XOR</button>
+                                    <button onclick="binaryOp('ADD')" class="btn-secondary text-sm">ADD</button>
+                                </div>
+
+                                <div id="binaryOpResult" class="hidden p-4 glass rounded-xl">
+                                    <div class="text-center">
+                                        <span class="text-white/70 text-sm">Resultado:</span>
+                                        <div id="binOpRes" class="font-mono font-bold text-2xl text-green-400 mt-2">-
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Complemento a Dos -->
+                        <div class="card p-6">
+                            <div class="flex items-center mb-4">
+                                <i class="fas fa-minus-circle text-3xl text-green-400 mr-4"></i>
+                                <h3 class="text-xl font-bold">Complemento a Dos</h3>
+                            </div>
+                            <p class="text-white/70 mb-4 text-sm">Representación de números negativos</p>
+
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Número Decimal</label>
+                                    <input type="number" id="twosInput" class="input-field" placeholder="Ej: -5">
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Bits</label>
+                                    <select id="bitsSelect" class="input-field">
+                                        <option value="4">4 bits</option>
+                                        <option value="8" selected>8 bits</option>
+                                        <option value="16">16 bits</option>
+                                        <option value="32">32 bits</option>
+                                    </select>
+                                </div>
+
+                                <button onclick="calculateTwosComplement()" class="btn-primary w-full">
+                                    <i class="fas fa-calculator mr-2"></i>
+                                    Calcular
+                                </button>
+
+                                <div id="twosResult" class="hidden space-y-2 p-4 glass rounded-xl">
+                                    <div>
+                                        <span class="text-white/70 text-sm">Magnitud:</span>
+                                        <div id="magnitude" class="font-mono text-yellow-400 mt-1">-</div>
+                                    </div>
+                                    <div>
+                                        <span class="text-white/70 text-sm">Complemento a 1:</span>
+                                        <div id="onesComp" class="font-mono text-blue-400 mt-1">-</div>
+                                    </div>
+                                    <div>
+                                        <span class="text-white/70 text-sm">Complemento a 2:</span>
+                                        <div id="twosComp" class="font-mono text-green-400 mt-1 font-bold">-</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- IEEE 754 -->
+                        <div class="card p-6">
+                            <div class="flex items-center mb-4">
+                                <i class="fas fa-wave-square text-3xl text-yellow-400 mr-4"></i>
+                                <h3 class="text-xl font-bold">IEEE 754</h3>
+                            </div>
+                            <p class="text-white/70 mb-4 text-sm">Representación de punto flotante</p>
+
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Número Decimal</label>
+                                    <input type="number" step="any" id="floatInput" class="input-field"
+                                        placeholder="Ej: 3.14">
+                                </div>
+
+                                <div class="grid grid-cols-2 gap-2">
+                                    <button onclick="calculateIEEE754(32)" class="btn-secondary text-sm">32
+                                        bits</button>
+                                    <button onclick="calculateIEEE754(64)" class="btn-secondary text-sm">64
+                                        bits</button>
+                                </div>
+
+                                <div id="ieee754Result" class="hidden space-y-2 p-4 glass rounded-xl text-xs">
+                                    <div>
+                                        <span class="text-white/70">Signo:</span>
+                                        <div id="ieeeSign" class="font-mono text-red-400 mt-1">-</div>
+                                    </div>
+                                    <div>
+                                        <span class="text-white/70">Exponente:</span>
+                                        <div id="ieeeExp" class="font-mono text-yellow-400 mt-1">-</div>
+                                    </div>
+                                    <div>
+                                        <span class="text-white/70">Mantisa:</span>
+                                        <div id="ieeeMantissa" class="font-mono text-green-400 mt-1 break-all">-</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Calculadora de Memoria -->
+                        <div class="card p-6">
+                            <div class="flex items-center mb-4">
+                                <i class="fas fa-memory text-3xl text-purple-400 mr-4"></i>
+                                <h3 class="text-xl font-bold">Calculadora de Memoria</h3>
+                            </div>
+                            <p class="text-white/70 mb-4 text-sm">Calcula capacidad y direccionamiento</p>
+
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Bits de Dirección</label>
+                                    <input type="number" id="addressBits" class="input-field" placeholder="Ej: 16">
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Bits de Datos</label>
+                                    <input type="number" id="dataBits" class="input-field" placeholder="Ej: 8">
+                                </div>
+
+                                <button onclick="calculateMemory()" class="btn-primary w-full">
+                                    <i class="fas fa-calculator mr-2"></i>
+                                    Calcular
+                                </button>
+
+                                <div id="memoryResult" class="hidden space-y-2 p-4 glass rounded-xl">
+                                    <div class="flex justify-between">
+                                        <span class="text-white/70">Palabras:</span>
+                                        <span id="memWords" class="font-bold text-blue-400">-</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-white/70">Capacidad:</span>
+                                        <span id="memCapacity" class="font-bold text-green-400">-</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Calculadora de Frecuencia -->
+                        <div class="card p-6">
+                            <div class="flex items-center mb-4">
+                                <i class="fas fa-clock text-3xl text-pink-400 mr-4"></i>
+                                <h3 class="text-xl font-bold">Frecuencia/Período</h3>
+                            </div>
+                            <p class="text-white/70 mb-4 text-sm">Convierte entre frecuencia y período</p>
+
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Frecuencia</label>
+                                    <input type="number" id="frequency" class="input-field" placeholder="Ej: 1000">
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Unidad</label>
+                                    <select id="freqUnit" class="input-field">
+                                        <option value="Hz">Hz</option>
+                                        <option value="KHz">KHz</option>
+                                        <option value="MHz" selected>MHz</option>
+                                        <option value="GHz">GHz</option>
+                                    </select>
+                                </div>
+
+                                <button onclick="calculatePeriod()" class="btn-primary w-full">
+                                    <i class="fas fa-calculator mr-2"></i>
+                                    Calcular Período
+                                </button>
+
+                                <div id="periodResult" class="hidden p-4 glass rounded-xl">
+                                    <div class="text-center">
+                                        <span class="text-white/70 text-sm">Período:</span>
+                                        <div id="period" class="font-bold text-2xl text-green-400 mt-2">-</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Generators Tab -->
+                <div id="generators-content" class="tab-content hidden">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+                        <!-- Generador VHDL -->
+                        <div class="card p-6">
+                            <div class="flex items-center mb-4">
+                                <i class="fas fa-file-code text-3xl text-primary-400 mr-4"></i>
+                                <h3 class="text-xl font-bold">Generador VHDL</h3>
+                            </div>
+                            <p class="text-white/70 mb-4 text-sm">Genera código VHDL con templates o AI</p>
+
+                            <!-- Tabs -->
+                            <div class="flex space-x-2 mb-4">
+                                <button onclick="switchVHDLMode('template')" id="vhdlTemplateTab"
+                                    class="flex-1 py-2 px-4 rounded-lg bg-purple-500/20 text-purple-400 border border-purple-500/30 text-sm font-medium">
+                                    <i class="fas fa-code mr-2"></i>Template
+                                </button>
+                                <button onclick="switchVHDLMode('ai')" id="vhdlAITab"
+                                    class="flex-1 py-2 px-4 rounded-lg bg-white/5 text-white/60 border border-white/10 text-sm font-medium hover:bg-white/10">
+                                    <i class="fas fa-robot mr-2"></i>AI Generate
+                                </button>
+                            </div>
+
+                            <!-- Template Mode -->
+                            <div id="vhdlTemplateMode" class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Nombre del Módulo</label>
+                                    <input type="text" id="vhdlModuleName" class="input-field" placeholder="mi_modulo">
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Template</label>
+                                    <select id="vhdlTemplate" class="input-field">
+                                        <option value="entity">Entity Básica</option>
+                                        <option value="flip-flop">Flip-Flop D</option>
+                                        <option value="counter">Contador</option>
+                                    </select>
+                                </div>
+
+                                <button onclick="generateVHDL()" class="btn-primary w-full">
+                                    <i class="fas fa-code mr-2"></i>
+                                    Generar Template
+                                </button>
+                            </div>
+
+                            <!-- AI Mode -->
+                            <div id="vhdlAIMode" class="space-y-4 hidden">
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Nombre del Módulo</label>
+                                    <input type="text" id="vhdlModuleNameAI" class="input-field"
+                                        placeholder="mi_modulo">
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Descripción del Circuito</label>
+                                    <textarea id="vhdlDescription" class="input-field" rows="3"
+                                        placeholder="Ej: Contador de 4 bits con reset asíncrono y enable. Debe incrementar en cada flanco de reloj cuando enable está activo."></textarea>
+                                </div>
+
+                                <button onclick="generateHDLWithAI('vhdl')" class="btn-primary w-full">
+                                    <i class="fas fa-magic mr-2"></i>
+                                    Generar con AI
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Generador Verilog -->
+                        <div class="card p-6">
+                            <div class="flex items-center mb-4">
+                                <i class="fas fa-file-code text-3xl text-secondary-400 mr-4"></i>
+                                <h3 class="text-xl font-bold">Generador Verilog</h3>
+                            </div>
+                            <p class="text-white/70 mb-4 text-sm">Genera código Verilog con templates o AI</p>
+
+                            <!-- Tabs -->
+                            <div class="flex space-x-2 mb-4">
+                                <button onclick="switchVerilogMode('template')" id="verilogTemplateTab"
+                                    class="flex-1 py-2 px-4 rounded-lg bg-purple-500/20 text-purple-400 border border-purple-500/30 text-sm font-medium">
+                                    <i class="fas fa-code mr-2"></i>Template
+                                </button>
+                                <button onclick="switchVerilogMode('ai')" id="verilogAITab"
+                                    class="flex-1 py-2 px-4 rounded-lg bg-white/5 text-white/60 border border-white/10 text-sm font-medium hover:bg-white/10">
+                                    <i class="fas fa-robot mr-2"></i>AI Generate
+                                </button>
+                            </div>
+
+                            <!-- Template Mode -->
+                            <div id="verilogTemplateMode" class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Nombre del Módulo</label>
+                                    <input type="text" id="verilogModuleName" class="input-field"
+                                        placeholder="mi_modulo">
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Template</label>
+                                    <select id="verilogTemplate" class="input-field">
+                                        <option value="module">Módulo Básico</option>
+                                        <option value="flip-flop">Flip-Flop D</option>
+                                        <option value="counter">Contador</option>
+                                    </select>
+                                </div>
+
+                                <button onclick="generateVerilog()" class="btn-primary w-full">
+                                    <i class="fas fa-code mr-2"></i>
+                                    Generar Template
+                                </button>
+                            </div>
+
+                            <!-- AI Mode -->
+                            <div id="verilogAIMode" class="space-y-4 hidden">
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Nombre del Módulo</label>
+                                    <input type="text" id="verilogModuleNameAI" class="input-field"
+                                        placeholder="mi_modulo">
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Descripción del Circuito</label>
+                                    <textarea id="verilogDescription" class="input-field" rows="3"
+                                        placeholder="Ej: Multiplexor 4 a 1 con selector de 2 bits. Debe seleccionar una de las 4 entradas basándose en el valor del selector."></textarea>
+                                </div>
+
+                                <button onclick="generateHDLWithAI('verilog')" class="btn-primary w-full">
+                                    <i class="fas fa-magic mr-2"></i>
+                                    Generar con AI
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Visor de Código -->
+                        <div class="card p-6 lg:col-span-2">
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="flex items-center">
+                                    <i class="fas fa-terminal text-3xl text-green-400 mr-4"></i>
+                                    <h3 class="text-xl font-bold">Código Generado</h3>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <button onclick="showHDLCloudSaveDialog()" class="btn-ghost text-sm"
+                                        title="Save to Cloud">
+                                        <i class="fas fa-cloud-upload-alt mr-1"></i>Cloud Save
+                                    </button>
+                                    <button onclick="showHDLCloudLoadDialog()" class="btn-ghost text-sm"
+                                        title="Load from Cloud">
+                                        <i class="fas fa-cloud-download-alt mr-1"></i>Cloud Load
+                                    </button>
+                                    <button onclick="copyHDL()" class="btn-ghost text-sm" title="Copy">
+                                        <i class="fas fa-copy"></i>
+                                    </button>
+                                    <button onclick="downloadHDL()" class="btn-ghost text-sm" title="Download">
+                                        <i class="fas fa-download"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="code-editor scrollbar-thin">
+                                <pre id="hdlOutput" class="text-sm">-- Selecciona un template y genera código</pre>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Simulators Tab -->
+                <div id="simulators-content" class="tab-content hidden">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+                        <!-- Simulador de Compuertas -->
+                        <div class="card p-6">
+                            <div class="flex items-center mb-4">
+                                <i class="fas fa-microchip text-3xl text-primary-400 mr-4"></i>
+                                <h3 class="text-xl font-bold">Simulador de Compuertas</h3>
+                            </div>
+                            <p class="text-white/70 mb-4 text-sm">Simula compuertas lógicas en tiempo real</p>
+
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Tipo de Compuerta</label>
+                                    <select id="gateType" onchange="updateGateSimulator()" class="input-field">
+                                        <option value="AND">AND</option>
+                                        <option value="OR">OR</option>
+                                        <option value="NOT">NOT</option>
+                                        <option value="NAND">NAND</option>
+                                        <option value="NOR">NOR</option>
+                                        <option value="XOR">XOR</option>
+                                        <option value="XNOR">XNOR</option>
+                                    </select>
+                                </div>
+
+                                <div id="gateInputs" class="space-y-3">
+                                    <div>
+                                        <label class="block text-sm font-medium mb-2">Entrada A</label>
+                                        <div class="flex space-x-2">
+                                            <button id="inputA0" onclick="setGateInput('A', 0)"
+                                                class="flex-1 py-2 px-4 rounded-lg border-2 bg-white/10 border-white/20 text-white hover:bg-white/20 transition-colors">0</button>
+                                            <button id="inputA1" onclick="setGateInput('A', 1)"
+                                                class="flex-1 py-2 px-4 rounded-lg border-2 bg-white/10 border-white/20 text-white hover:bg-white/20 transition-colors">1</button>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <label class="block text-sm font-medium mb-2">Entrada B</label>
+                                        <div class="flex space-x-2">
+                                            <button id="inputB0" onclick="setGateInput('B', 0)"
+                                                class="flex-1 py-2 px-4 rounded-lg border-2 bg-white/10 border-white/20 text-white hover:bg-white/20 transition-colors">0</button>
+                                            <button id="inputB1" onclick="setGateInput('B', 1)"
+                                                class="flex-1 py-2 px-4 rounded-lg border-2 bg-white/10 border-white/20 text-white hover:bg-white/20 transition-colors">1</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="p-6 glass rounded-xl text-center">
+                                    <span class="text-white/70 text-sm block mb-2">Salida</span>
+                                    <div id="gateOutput" class="text-4xl font-bold text-green-400">0</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Generador de Tablas de Verdad -->
+                        <div class="card p-6">
+                            <div class="flex items-center mb-4">
+                                <i class="fas fa-table text-3xl text-secondary-400 mr-4"></i>
+                                <h3 class="text-xl font-bold">Tabla de Verdad</h3>
+                            </div>
+                            <p class="text-white/70 mb-4 text-sm">Genera tablas de verdad automáticamente</p>
+
+                            <div class="space-y-4">
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Número de Variables</label>
+                                    <select id="truthTableVars" class="input-field">
+                                        <option value="2">2 variables</option>
+                                        <option value="3">3 variables</option>
+                                        <option value="4">4 variables</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="block text-sm font-medium mb-2">Operación</label>
+                                    <select id="truthTableOp" class="input-field">
+                                        <option value="AND">AND</option>
+                                        <option value="OR">OR</option>
+                                        <option value="XOR">XOR</option>
+                                        <option value="NAND">NAND</option>
+                                        <option value="NOR">NOR</option>
+                                    </select>
+                                </div>
+
+                                <button onclick="generateTruthTable()" class="btn-primary w-full">
+                                    <i class="fas fa-table mr-2"></i>
+                                    Generar Tabla
+                                </button>
+
+                                <div id="truthTableOutput"
+                                    class="glass rounded-xl p-4 max-h-96 overflow-auto scrollbar-thin">
+                                    <p class="text-white/50 text-sm text-center">Selecciona opciones y genera la tabla
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Circuit Designer Tab (Logisim-style) -->
+                <div id="circuit-designer-content" class="tab-content hidden">
+                    <div class="space-y-8">
+
+                        <!-- Visual Circuit Designer -->
+                        <div class="card p-6">
+                            <div class="flex items-center justify-between mb-6">
+                                <div class="flex items-center">
+                                    <i class="fas fa-project-diagram text-3xl text-purple-400 mr-4"></i>
+                                    <div>
+                                        <h3 class="text-2xl font-bold">Visual Circuit Designer</h3>
+                                        <p class="text-white/50 text-sm">Design and simulate digital circuits visually
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <button onclick="showCloudSaveDialog()" class="btn-ghost text-sm"
+                                        title="Save to Puter Cloud">
+                                        <i class="fas fa-cloud-upload-alt mr-1"></i>Cloud Save
+                                    </button>
+                                    <button onclick="showCloudLoadDialog()" class="btn-ghost text-sm"
+                                        title="Load from Puter Cloud">
+                                        <i class="fas fa-cloud-download-alt mr-1"></i>Cloud Load
+                                    </button>
+                                    <button onclick="clearCanvas()" class="btn-ghost text-sm">
+                                        <i class="fas fa-trash mr-1"></i>Clear
+                                    </button>
+                                    <button onclick="exportCircuit()" class="btn-ghost text-sm">
+                                        <i class="fas fa-download mr-1"></i>Export
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+                                <!-- Component Palette -->
+                                <div class="space-y-3">
+                                    <h4 class="text-sm font-semibold text-white/70 mb-3">Components</h4>
+
+                                    <div class="space-y-2">
+                                        <button onclick="addComponent('input')"
+                                            class="w-full p-3 bg-white/5 hover:bg-white/10 rounded-lg border border-white/10 hover:border-purple-500/50 transition-all text-left">
+                                            <i class="fas fa-toggle-on text-green-400 mr-2"></i>
+                                            <span class="text-sm">Input</span>
+                                        </button>
+                                        <button onclick="addComponent('output')"
+                                            class="w-full p-3 bg-white/5 hover:bg-white/10 rounded-lg border border-white/10 hover:border-purple-500/50 transition-all text-left">
+                                            <i class="fas fa-lightbulb text-yellow-400 mr-2"></i>
+                                            <span class="text-sm">Output</span>
+                                        </button>
+                                        <button onclick="addComponent('and')"
+                                            class="w-full p-3 bg-white/5 hover:bg-white/10 rounded-lg border border-white/10 hover:border-purple-500/50 transition-all text-left">
+                                            <i class="fas fa-circle text-blue-400 mr-2"></i>
+                                            <span class="text-sm">AND Gate</span>
+                                        </button>
+                                        <button onclick="addComponent('or')"
+                                            class="w-full p-3 bg-white/5 hover:bg-white/10 rounded-lg border border-white/10 hover:border-purple-500/50 transition-all text-left">
+                                            <i class="fas fa-circle text-purple-400 mr-2"></i>
+                                            <span class="text-sm">OR Gate</span>
+                                        </button>
+                                        <button onclick="addComponent('not')"
+                                            class="w-full p-3 bg-white/5 hover:bg-white/10 rounded-lg border border-white/10 hover:border-purple-500/50 transition-all text-left">
+                                            <i class="fas fa-circle text-red-400 mr-2"></i>
+                                            <span class="text-sm">NOT Gate</span>
+                                        </button>
+                                        <button onclick="addComponent('xor')"
+                                            class="w-full p-3 bg-white/5 hover:bg-white/10 rounded-lg border border-white/10 hover:border-purple-500/50 transition-all text-left">
+                                            <i class="fas fa-circle text-pink-400 mr-2"></i>
+                                            <span class="text-sm">XOR Gate</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Canvas -->
+                                <div class="lg:col-span-3">
+                                    <div id="circuit-canvas" class="w-full rounded-xl border border-white/10 relative"
+                                        style="height: 400px; background: #0a0a0a;">
+                                        <canvas id="logicCanvas"
+                                            style="width: 100%; height: 100%; display: block;"></canvas>
+                                    </div>
+
+                                    <div class="mt-4 flex items-center justify-between">
+                                        <div class="flex space-x-2">
+                                            <button id="simulateBtn" onclick="simulateCircuit()"
+                                                class="btn-primary text-sm">
+                                                <i class="fas fa-play mr-2"></i>
+                                                <span id="simulateBtnText">Start Simulation</span>
+                                            </button>
+                                            <button onclick="stepSimulation()" class="btn-secondary text-sm">
+                                                <i class="fas fa-step-forward mr-2"></i>Step
+                                            </button>
+                                        </div>
+                                        <div class="flex items-center space-x-4">
+                                            <div id="simulationStatus" class="flex items-center space-x-2 hidden">
+                                                <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                                                <span class="text-xs text-green-400 font-medium">Simulation
+                                                    Running</span>
+                                            </div>
+                                            <div class="text-sm text-white/50">
+                                                <span id="componentCount">0 components</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Example Circuits -->
+                                    <div class="mt-6 p-4 bg-white/5 rounded-xl border border-white/10">
+                                        <div class="flex items-center justify-between mb-3">
+                                            <div class="flex items-center">
+                                                <i class="fas fa-book text-white/60 mr-2"></i>
+                                                <h4 class="text-sm font-semibold text-white">Example Circuits</h4>
+                                            </div>
+                                            <span class="text-xs text-white/40">Click to load</span>
+                                        </div>
+                                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                                            <button onclick="loadExample('halfAdder')"
+                                                class="p-3 bg-white/5 hover:bg-white/10 rounded-lg border border-white/10 hover:border-purple-500/50 transition-all">
+                                                <div class="text-purple-400 mb-1">
+                                                    <i class="fas fa-plus-circle"></i>
+                                                </div>
+                                                <div class="text-xs font-medium">Half Adder</div>
+                                                <div class="text-xs text-white/40 mt-1">A + B</div>
+                                            </button>
+                                            <button onclick="loadExample('fullAdder')"
+                                                class="p-3 bg-white/5 hover:bg-white/10 rounded-lg border border-white/10 hover:border-blue-500/50 transition-all">
+                                                <div class="text-blue-400 mb-1">
+                                                    <i class="fas fa-calculator"></i>
+                                                </div>
+                                                <div class="text-xs font-medium">Full Adder</div>
+                                                <div class="text-xs text-white/40 mt-1">A + B + Cin</div>
+                                            </button>
+                                            <button onclick="loadExample('srLatch')"
+                                                class="p-3 bg-white/5 hover:bg-white/10 rounded-lg border border-white/10 hover:border-green-500/50 transition-all">
+                                                <div class="text-green-400 mb-1">
+                                                    <i class="fas fa-save"></i>
+                                                </div>
+                                                <div class="text-xs font-medium">SR Latch</div>
+                                                <div class="text-xs text-white/40 mt-1">Memory</div>
+                                            </button>
+                                            <button onclick="loadExample('mux2to1')"
+                                                class="p-3 bg-white/5 hover:bg-white/10 rounded-lg border border-white/10 hover:border-orange-500/50 transition-all">
+                                                <div class="text-orange-400 mb-1">
+                                                    <i class="fas fa-random"></i>
+                                                </div>
+                                                <div class="text-xs font-medium">2-to-1 MUX</div>
+                                                <div class="text-xs text-white/40 mt-1">Selector</div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional Circuit Tools -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12"></div>
+
+                    <!-- Karnaugh Map Generator -->
+                    <div class="card p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-th text-3xl text-green-400 mr-4"></i>
+                            <h3 class="text-xl font-bold">Karnaugh Map</h3>
+                        </div>
+                        <p class="text-white/70 mb-4 text-sm">Generate and simplify K-maps</p>
+
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Variables</label>
+                                <select id="kmapVars" class="input-field">
+                                    <option value="2">2 variables</option>
+                                    <option value="3">3 variables</option>
+                                    <option value="4">4 variables</option>
+                                </select>
+                            </div>
+
+                            <button onclick="generateKMap()" class="btn-primary w-full">
+                                <i class="fas fa-th mr-2"></i>
+                                Generate K-Map
+                            </button>
+
+                            <div id="kmapOutput" class="hidden p-4 glass rounded-xl">
+                                <div id="kmapGrid" class="grid gap-1"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- State Machine Designer -->
+                    <div class="card p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-sitemap text-3xl text-blue-400 mr-4"></i>
+                            <h3 class="text-xl font-bold">State Machine</h3>
+                        </div>
+                        <p class="text-white/70 mb-4 text-sm">Design finite state machines</p>
+
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Number of States</label>
+                                <input type="number" id="fsmStates" class="input-field" placeholder="4" min="2" max="8">
+                            </div>
+
+                            <button onclick="generateFSM()" class="btn-primary w-full">
+                                <i class="fas fa-sitemap mr-2"></i>
+                                Generate FSM
+                            </button>
+
+                            <div id="fsmOutput" class="hidden p-4 glass rounded-xl text-sm">
+                                <div id="fsmDiagram" class="text-white/70">FSM diagram will appear here</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Timing Diagram Generator -->
+                    <div class="card p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-wave-square text-3xl text-yellow-400 mr-4"></i>
+                            <h3 class="text-xl font-bold">Timing Diagram</h3>
+                        </div>
+                        <p class="text-white/70 mb-4 text-sm">Generate timing diagrams</p>
+
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Signals</label>
+                                <input type="text" id="timingSignals" class="input-field" placeholder="CLK, A, B, OUT">
+                            </div>
+
+                            <button onclick="generateTiming()" class="btn-primary w-full">
+                                <i class="fas fa-wave-square mr-2"></i>
+                                Generate Diagram
+                            </button>
+
+                            <div id="timingOutput" class="hidden p-4 glass rounded-xl">
+                                <canvas id="timingCanvas" class="w-full h-32 bg-black/30 rounded"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            </div>
+
+            <!-- Converters Tab -->
+            <div id="converters-content" class="tab-content hidden">
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+
+                    <!-- Conversor ASCII -->
+                    <div class="card p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-font text-3xl text-primary-400 mr-4"></i>
+                            <h3 class="text-xl font-bold">Conversor ASCII</h3>
+                        </div>
+                        <p class="text-white/70 mb-4 text-sm">Convierte texto a códigos ASCII</p>
+
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Texto</label>
+                                <input type="text" id="asciiInput" class="input-field" placeholder="Ej: Hola">
+                            </div>
+
+                            <button onclick="convertASCII()" class="btn-primary w-full">
+                                <i class="fas fa-sync-alt mr-2"></i>
+                                Convertir
+                            </button>
+
+                            <div id="asciiResult" class="hidden space-y-2 p-4 glass rounded-xl text-xs">
+                                <div>
+                                    <span class="text-white/70">Decimal:</span>
+                                    <div id="asciiDecimal" class="font-mono text-green-400 mt-1 break-all">-</div>
+                                </div>
+                                <div>
+                                    <span class="text-white/70">Hexadecimal:</span>
+                                    <div id="asciiHex" class="font-mono text-yellow-400 mt-1 break-all">-</div>
+                                </div>
+                                <div>
+                                    <span class="text-white/70">Binario:</span>
+                                    <div id="asciiBinary" class="font-mono text-blue-400 mt-1 break-all">-</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Conversor BCD -->
+                    <div class="card p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-hashtag text-3xl text-secondary-400 mr-4"></i>
+                            <h3 class="text-xl font-bold">Conversor BCD</h3>
+                        </div>
+                        <p class="text-white/70 mb-4 text-sm">Decimal a Binary Coded Decimal</p>
+
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Número Decimal</label>
+                                <input type="number" id="bcdInput" class="input-field" placeholder="Ej: 1234">
+                            </div>
+
+                            <button onclick="convertBCD()" class="btn-primary w-full">
+                                <i class="fas fa-sync-alt mr-2"></i>
+                                Convertir a BCD
+                            </button>
+
+                            <div id="bcdResult" class="hidden p-4 glass rounded-xl">
+                                <span class="text-white/70 text-sm">BCD:</span>
+                                <div id="bcdOutput" class="font-mono text-green-400 mt-2 break-all">-</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Conversor Gray Code -->
+                    <div class="card p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-barcode text-3xl text-green-400 mr-4"></i>
+                            <h3 class="text-xl font-bold">Código Gray</h3>
+                        </div>
+                        <p class="text-white/70 mb-4 text-sm">Conversión binario ↔ Gray</p>
+
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Binario</label>
+                                <input type="text" id="grayInput" class="input-field" placeholder="Ej: 1010">
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-2">
+                                <button onclick="convertToGray()" class="btn-secondary text-sm">→ Gray</button>
+                                <button onclick="convertFromGray()" class="btn-secondary text-sm">Gray →</button>
+                            </div>
+
+                            <div id="grayResult" class="hidden p-4 glass rounded-xl">
+                                <span class="text-white/70 text-sm">Resultado:</span>
+                                <div id="grayOutput" class="font-mono text-green-400 mt-2 text-lg">-</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Analyzers Tab -->
+            <div id="analyzers-content" class="tab-content hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+                    <!-- Simplificador Booleano -->
+                    <div class="card p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-compress-alt text-3xl text-primary-400 mr-4"></i>
+                            <h3 class="text-xl font-bold">Simplificador Booleano</h3>
+                        </div>
+                        <p class="text-white/70 mb-4 text-sm">Simplifica expresiones booleanas</p>
+
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Expresión Booleana</label>
+                                <input type="text" id="boolExpr" class="input-field" placeholder="Ej: A+A.B">
+                            </div>
+
+                            <button onclick="simplifyBoolean()" class="btn-primary w-full">
+                                <i class="fas fa-magic mr-2"></i>
+                                Simplificar
+                            </button>
+
+                            <div id="boolResult" class="hidden space-y-3 p-4 glass rounded-xl">
+                                <div>
+                                    <span class="text-white/70 text-sm">Original:</span>
+                                    <div id="originalExpr" class="font-mono text-yellow-400 mt-1">-</div>
+                                </div>
+                                <div>
+                                    <span class="text-white/70 text-sm">Simplificada:</span>
+                                    <div id="simplified" class="font-mono text-green-400 mt-1 font-bold">-</div>
+                                </div>
+                                <div>
+                                    <span class="text-white/70 text-sm">Forma Canónica:</span>
+                                    <div id="canonical" class="font-mono text-blue-400 mt-1">-</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Analizador de Circuitos -->
+                    <div class="card p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-project-diagram text-3xl text-secondary-400 mr-4"></i>
+                            <h3 class="text-xl font-bold">Analizador de Circuitos</h3>
+                        </div>
+                        <p class="text-white/70 mb-4 text-sm">Analiza descripciones de circuitos</p>
+
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Descripción del Circuito</label>
+                                <textarea id="circuitDesc" class="input-field min-h-32"
+                                    placeholder="Describe tu circuito..."></textarea>
+                            </div>
+
+                            <button onclick="analyzeCircuit()" class="btn-primary w-full">
+                                <i class="fas fa-search mr-2"></i>
+                                Analizar
+                            </button>
+
+                            <div id="circuitAnalysis" class="hidden p-4 glass rounded-xl">
+                                <div class="space-y-2 text-sm">
+                                    <div class="flex items-center text-green-400">
+                                        <i class="fas fa-check-circle mr-2"></i>
+                                        <span>Análisis completado</span>
+                                    </div>
+                                    <div id="analysisResult" class="text-white/70 mt-2">
+                                        Resultados del análisis...
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Utilities Tab -->
+            <div id="utilities-content" class="tab-content hidden">
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+
+                    <!-- Referencia Rápida -->
+                    <div class="card p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-book text-3xl text-primary-400 mr-4"></i>
+                            <h3 class="text-xl font-bold">Referencia Rápida</h3>
+                        </div>
+                        <p class="text-white/70 mb-4 text-sm">Guía de compuertas y operaciones</p>
+
+                        <div class="space-y-2 text-sm">
+                            <div class="p-3 glass rounded-lg">
+                                <div class="font-bold text-green-400">AND (·)</div>
+                                <div class="text-white/70">Salida 1 si todas las entradas son 1</div>
+                            </div>
+                            <div class="p-3 glass rounded-lg">
+                                <div class="font-bold text-blue-400">OR (+)</div>
+                                <div class="text-white/70">Salida 1 si alguna entrada es 1</div>
+                            </div>
+                            <div class="p-3 glass rounded-lg">
+                                <div class="font-bold text-yellow-400">NOT (¬)</div>
+                                <div class="text-white/70">Invierte la entrada</div>
+                            </div>
+                            <div class="p-3 glass rounded-lg">
+                                <div class="font-bold text-purple-400">XOR (⊕)</div>
+                                <div class="text-white/70">Salida 1 si las entradas son diferentes</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Calculadora de Potencia -->
+                    <div class="card p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-bolt text-3xl text-yellow-400 mr-4"></i>
+                            <h3 class="text-xl font-bold">Calculadora de Potencia</h3>
+                        </div>
+                        <p class="text-white/70 mb-4 text-sm">Calcula potencia de 2</p>
+
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Exponente</label>
+                                <input type="number" id="powerInput" class="input-field" placeholder="Ej: 10">
+                            </div>
+
+                            <button onclick="calculatePower()" class="btn-primary w-full">
+                                <i class="fas fa-calculator mr-2"></i>
+                                Calcular 2^n
+                            </button>
+
+                            <div id="powerResult" class="hidden p-4 glass rounded-xl text-center">
+                                <span class="text-white/70 text-sm">Resultado:</span>
+                                <div id="powerOutput" class="font-bold text-2xl text-green-400 mt-2">-</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Generador de Máscaras -->
+                    <div class="card p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-mask text-3xl text-purple-400 mr-4"></i>
+                            <h3 class="text-xl font-bold">Generador de Máscaras</h3>
+                        </div>
+                        <p class="text-white/70 mb-4 text-sm">Genera máscaras binarias</p>
+
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Número de Bits</label>
+                                <input type="number" id="maskBits" class="input-field" placeholder="Ej: 8">
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-2">
+                                <button onclick="generateMask('all')" class="btn-secondary text-sm">Todos 1</button>
+                                <button onclick="generateMask('none')" class="btn-secondary text-sm">Todos 0</button>
+                            </div>
+
+                            <div id="maskResult" class="hidden p-4 glass rounded-xl">
+                                <span class="text-white/70 text-sm">Máscara:</span>
+                                <div id="maskOutput" class="font-mono text-green-400 mt-2 text-lg">-</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Analizador de Timing -->
+                    <div class="card p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-stopwatch text-3xl text-cyan-400 mr-4"></i>
+                            <h3 class="text-xl font-bold">Timing Analyzer</h3>
+                        </div>
+                        <p class="text-white/70 mb-4 text-sm">Analiza delays y timing</p>
+
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Clock Frequency (MHz)</label>
+                                <input type="number" id="clockFreq" class="input-field" placeholder="100">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Propagation Delay (ns)</label>
+                                <input type="number" id="propDelay" class="input-field" placeholder="5">
+                            </div>
+
+                            <button onclick="analyzeTiming()" class="btn-primary w-full">
+                                <i class="fas fa-stopwatch mr-2"></i>
+                                Analyze
+                            </button>
+
+                            <div id="timingAnalysis" class="hidden p-4 glass rounded-xl text-sm space-y-2">
+                                <div class="flex justify-between">
+                                    <span class="text-white/70">Period:</span>
+                                    <span id="timingPeriod" class="text-green-400 font-mono">-</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-white/70">Max Frequency:</span>
+                                    <span id="timingMaxFreq" class="text-blue-400 font-mono">-</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-white/70">Setup Time:</span>
+                                    <span id="timingSetup" class="text-yellow-400 font-mono">-</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Power Consumption Calculator -->
+                    <div class="card p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-battery-full text-3xl text-green-400 mr-4"></i>
+                            <h3 class="text-xl font-bold">Power Consumption</h3>
+                        </div>
+                        <p class="text-white/70 mb-4 text-sm">Calcula consumo de potencia (P = V × I)</p>
+
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Voltage (V)</label>
+                                <input type="number" step="0.1" id="powerVoltage" class="input-field" placeholder="3.3">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Current (mA)</label>
+                                <input type="number" id="powerCurrent" class="input-field" placeholder="100">
+                            </div>
+
+                            <button onclick="calculatePowerConsumption()" class="btn-primary w-full">
+                                <i class="fas fa-calculator mr-2"></i>
+                                Calculate
+                            </button>
+
+                            <div id="powerConsumptionResult" class="hidden p-4 glass rounded-xl text-center">
+                                <span class="text-white/70 text-sm">Power:</span>
+                                <div id="powerConsumptionOutput" class="font-bold text-2xl text-green-400 mt-2">-</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Conversor de Unidades -->
+                    <div class="card p-6">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-ruler text-3xl text-orange-400 mr-4"></i>
+                            <h3 class="text-xl font-bold">Unit Converter</h3>
+                        </div>
+                        <p class="text-white/70 mb-4 text-sm">Convierte unidades eléctricas</p>
+
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Value</label>
+                                <input type="number" id="unitValue" class="input-field" placeholder="1000">
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-2">
+                                <select id="unitFrom" class="input-field text-sm">
+                                    <option value="mV">mV</option>
+                                    <option value="V">V</option>
+                                    <option value="kV">kV</option>
+                                </select>
+                                <select id="unitTo" class="input-field text-sm">
+                                    <option value="mV">mV</option>
+                                    <option value="V" selected>V</option>
+                                    <option value="kV">kV</option>
+                                </select>
+                            </div>
+
+                            <button onclick="convertUnits()" class="btn-primary w-full">
+                                <i class="fas fa-exchange-alt mr-2"></i>
+                                Convert
+                            </button>
+
+                            <div id="unitResult" class="hidden p-4 glass rounded-xl text-center">
+                                <div id="unitOutput" class="font-bold text-xl text-blue-400">-</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- AI Chat Assistant Tab -->
+            <div id="ai-chat-content" class="tab-content hidden">
+                <div class="max-w-6xl mx-auto">
+                    <!-- AI Chat Container -->
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+                        <!-- Documentation Sidebar -->
+                        <div class="lg:col-span-1 space-y-4">
+                            <div class="card p-6">
+                                <h3 class="text-xl font-bold mb-4 flex items-center">
+                                    <i class="fas fa-book text-purple-400 mr-3"></i>
+                                    Documentación
+                                </h3>
+
+                                <div class="space-y-3">
+                                    <button onclick="loadDocumentation('digital-logic')"
+                                        class="w-full text-left p-3 glass rounded-lg hover:bg-white/10 transition-all">
+                                        <div class="font-semibold text-sm text-purple-400">Lógica Digital</div>
+                                        <div class="text-xs text-white/60">Compuertas, álgebra booleana</div>
+                                    </button>
+
+                                    <button onclick="loadDocumentation('computer-arch')"
+                                        class="w-full text-left p-3 glass rounded-lg hover:bg-white/10 transition-all">
+                                        <div class="font-semibold text-sm text-blue-400">Arquitectura de Computadoras
+                                        </div>
+                                        <div class="text-xs text-white/60">CPU, memoria, buses</div>
+                                    </button>
+
+                                    <button onclick="loadDocumentation('vhdl')"
+                                        class="w-full text-left p-3 glass rounded-lg hover:bg-white/10 transition-all">
+                                        <div class="font-semibold text-sm text-green-400">VHDL</div>
+                                        <div class="text-xs text-white/60">Sintaxis, ejemplos, best practices</div>
+                                    </button>
+
+                                    <button onclick="loadDocumentation('verilog')"
+                                        class="w-full text-left p-3 glass rounded-lg hover:bg-white/10 transition-all">
+                                        <div class="font-semibold text-sm text-yellow-400">Verilog</div>
+                                        <div class="text-xs text-white/60">HDL, módulos, testbenches</div>
+                                    </button>
+
+                                    <button onclick="loadDocumentation('fpga')"
+                                        class="w-full text-left p-3 glass rounded-lg hover:bg-white/10 transition-all">
+                                        <div class="font-semibold text-sm text-pink-400">FPGA</div>
+                                        <div class="text-xs text-white/60">Xilinx, Intel, constraints</div>
+                                    </button>
+
+                                    <button onclick="loadDocumentation('timing')"
+                                        class="w-full text-left p-3 glass rounded-lg hover:bg-white/10 transition-all">
+                                        <div class="font-semibold text-sm text-cyan-400">Timing Analysis</div>
+                                        <div class="text-xs text-white/60">Setup, hold, clock domains</div>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Quick Actions -->
+                            <div class="card p-6">
+                                <h3 class="text-lg font-bold mb-4 flex items-center">
+                                    <i class="fas fa-bolt text-yellow-400 mr-3"></i>
+                                    Acciones Rápidas
+                                </h3>
+
+                                <div class="space-y-2">
+                                    <button onclick="quickPrompt('Explica cómo funciona un flip-flop D')"
+                                        class="w-full text-left p-2 text-sm glass rounded-lg hover:bg-white/10 transition-all">
+                                        <i class="fas fa-question-circle text-purple-400 mr-2"></i>
+                                        Flip-Flop D
+                                    </button>
+
+                                    <button onclick="quickPrompt('Genera código VHDL para un contador de 8 bits')"
+                                        class="w-full text-left p-2 text-sm glass rounded-lg hover:bg-white/10 transition-all">
+                                        <i class="fas fa-code text-green-400 mr-2"></i>
+                                        Contador VHDL
+                                    </button>
+
+                                    <button onclick="quickPrompt('Explica la diferencia entre memoria SRAM y DRAM')"
+                                        class="w-full text-left p-2 text-sm glass rounded-lg hover:bg-white/10 transition-all">
+                                        <i class="fas fa-memory text-blue-400 mr-2"></i>
+                                        SRAM vs DRAM
+                                    </button>
+
+                                    <button onclick="clearAIChat()"
+                                        class="w-full text-left p-2 text-sm glass rounded-lg hover:bg-red-500/20 transition-all text-red-400">
+                                        <i class="fas fa-trash mr-2"></i>
+                                        Limpiar Chat
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Chat Area -->
+                        <div class="lg:col-span-2">
+                            <div class="card p-0 overflow-hidden"
+                                style="height: 700px; display: flex; flex-direction: column;">
+                                <!-- Chat Header -->
+                                <div
+                                    class="bg-gradient-to-r from-purple-500/20 to-pink-500/20 border-b border-white/10 p-4">
+                                    <div class="flex items-center justify-between">
+                                        <div class="flex items-center space-x-3">
+                                            <div
+                                                class="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+                                                <i class="fas fa-robot text-white"></i>
+                                            </div>
+                                            <div>
+                                                <h3 class="text-white font-semibold">Digital Forge AI</h3>
+                                                <p class="text-xs text-white/60">Experto en Ingeniería Digital</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                                            <span class="text-xs text-white/60">Online</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Messages Container -->
+                                <div id="aiChatMessages" class="flex-1 overflow-y-auto p-6 space-y-4 scrollbar-thin">
+                                    <!-- Welcome Message -->
+                                    <div class="flex items-start space-x-3">
+                                        <div
+                                            class="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <i class="fas fa-robot text-white text-xs"></i>
+                                        </div>
+                                        <div class="flex-1">
+                                            <div class="bg-white/5 rounded-lg p-4 text-sm text-white/90">
+                                                <p class="mb-3">👋 ¡Hola! Soy <strong class="text-purple-400">Digital
+                                                        Forge AI</strong>, tu asistente experto en ingeniería digital.
+                                                </p>
+                                                <p class="mb-3">Puedo ayudarte con:</p>
+                                                <ul class="text-xs space-y-1 text-white/70 ml-4 mb-3">
+                                                    <li>• <strong>Lógica Digital:</strong> Compuertas, circuitos
+                                                        combinacionales y secuenciales</li>
+                                                    <li>• <strong>HDL:</strong> VHDL y Verilog con ejemplos de código
+                                                    </li>
+                                                    <li>• <strong>Arquitectura:</strong> CPU, memoria, buses, pipeline
+                                                    </li>
+                                                    <li>• <strong>FPGA:</strong> Xilinx, Intel/Altera, constraints</li>
+                                                    <li>• <strong>Timing:</strong> Setup/hold time, análisis de timing
+                                                    </li>
+                                                    <li>• <strong>Arduino:</strong> Programación de microcontroladores
+                                                    </li>
+                                                </ul>
+                                                <p class="text-xs text-purple-400">💡 Usa la documentación de la
+                                                    izquierda o pregúntame directamente.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Input Area -->
+                                <div class="border-t border-white/10 p-4 bg-black/20">
+                                    <div class="flex items-start space-x-3">
+                                        <div class="flex-1">
+                                            <textarea id="aiChatInput" rows="2" maxlength="10000"
+                                                placeholder="Pregunta sobre lógica digital, VHDL, arquitectura..."
+                                                class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder-white/40 focus:outline-none focus:border-purple-500/50 resize-none scrollbar-thin"
+                                                onkeydown="handleChatKeydown(event)"
+                                                oninput="updateCharCount(this)"></textarea>
+                                        </div>
+                                        <button onclick="sendChatMessage()"
+                                            class="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white rounded-lg px-6 py-3 transition-all flex items-center justify-center flex-shrink-0"
+                                            id="aiChatSendBtn">
+                                            <i class="fas fa-paper-plane"></i>
+                                        </button>
+                                    </div>
+                                    <div class="mt-2 text-xs text-white/40 flex items-center justify-between">
+                                        <span id="aiChatStatus">Powered by Puter AI (Claude Sonnet 4)</span>
+                                        <span class="text-white/30"><span id="charCount">0</span>/10,000 • Shift+Enter
+                                            para nueva línea</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Include Formulas Section -->
+            <script>
+                fetch('pages/formulas-list.html')
+                    .then(response => {
+                        if (!response.ok) throw new Error('Failed to load formulas');
+                        return response.text();
+                    })
+                    .then(html => {
+                        const container = document.querySelector('#ai-chat-content').parentElement;
+                        container.insertAdjacentHTML('beforeend', html);
+                        console.log('✅ Formulas section loaded');
+                        if (typeof MathJax !== 'undefined' && MathJax.typesetPromise) {
+                            MathJax.typesetPromise();
+                        }
+                    })
+                    .catch(err => console.error('❌ Error loading formulas:', err));
+            </script>
+
+            <!-- Include Hardware Section -->
+            <script>
+                fetch('pages/hardware.html')
+                    .then(response => {
+                        if (!response.ok) throw new Error('Failed to load hardware');
+                        return response.text();
+                    })
+                    .then(html => {
+                        const container = document.querySelector('#ai-chat-content').parentElement;
+                        container.insertAdjacentHTML('beforeend', html);
+                        console.log('✅ Hardware section loaded');
+                    })
+                    .catch(err => console.error('❌ Error loading hardware:', err));
+            </script>
+
+            <!-- Include Advanced Section -->
+            <script>
+                fetch('pages/advanced.html')
+                    .then(response => {
+                        if (!response.ok) throw new Error('Failed to load advanced');
+                        return response.text();
+                    })
+                    .then(html => {
+                        const container = document.querySelector('#ai-chat-content').parentElement;
+                        container.insertAdjacentHTML('beforeend', html);
+                        console.log('✅ Advanced section loaded');
+                    })
+                    .catch(err => console.error('❌ Error loading advanced:', err));
+            </script>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Toast Notification -->
+    <div id="toast"
+        class="fixed bottom-4 right-4 z-50 hidden transform transition-transform duration-300 translate-y-full">
+        <div class="toast flex items-center space-x-3 p-4">
+            <i id="toast-icon" class="fas fa-check-circle text-green-400 text-xl"></i>
+            <span id="toast-message" class="text-white font-medium">Mensaje</span>
+            <button onclick="hideToast()" class="ml-4 text-white/60 hover:text-white transition-colors">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-white/5 mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Brand -->
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-2">
+                        <div
+                            class="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-microchip text-white text-sm"></i>
+                        </div>
+                        <span class="text-lg font-bold text-white">DigitalForge</span>
+                    </div>
+                    <p class="text-sm text-white/60">
+                        Professional suite for digital engineering with HDL generators, circuit simulators, and
+                        calculators.
+                    </p>
+                    <div class="flex items-center space-x-1 text-xs text-white/40">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Made in Panama 🇵🇦 ❤️</span>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-sm font-semibold text-white mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm text-white/60">
+                        <li><a href="#features" class="hover:text-purple-400 transition-colors">Tools</a></li>
+                        <li><button onclick="switchTab('calculators')"
+                                class="hover:text-purple-400 transition-colors">Calculators</button></li>
+                        <li><button onclick="switchTab('generators')"
+                                class="hover:text-purple-400 transition-colors">HDL Generators</button></li>
+                        <li><button onclick="switchTab('circuit-designer')"
+                                class="hover:text-purple-400 transition-colors">Circuit Designer</button></li>
+                        <li><button onclick="switchTab('simulators')"
+                                class="hover:text-purple-400 transition-colors">Simulators</button></li>
+                    </ul>
+                </div>
+
+                <!-- Resources -->
+                <div>
+                    <h4 class="text-sm font-semibold text-white mb-4">Resources</h4>
+                    <ul class="space-y-2 text-sm text-white/60">
+                        <li><a href="CIRCUIT_DESIGNER_GUIDE.md" target="_blank"
+                                class="hover:text-purple-400 transition-colors">Circuit Designer Guide</a></li>
+                        <li><a href="CHANGELOG.md" target="_blank"
+                                class="hover:text-purple-400 transition-colors">Changelog</a></li>
+                        <li><button onclick="openPuterDocs()" class="hover:text-purple-400 transition-colors">Cloud
+                                Storage (Puter)</button></li>
+                        <li><button onclick="showAbout()" class="hover:text-purple-400 transition-colors">About</button>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Connect -->
+                <div>
+                    <h4 class="text-sm font-semibold text-white mb-4">Connect</h4>
+                    <div class="space-y-3">
+                        <a href="https://github.com" target="_blank"
+                            class="flex items-center space-x-2 text-sm text-white/60 hover:text-purple-400 transition-colors">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                        </a>
+                        <button onclick="openPuterCloud()"
+                            class="flex items-center space-x-2 text-sm text-white/60 hover:text-purple-400 transition-colors">
+                            <i class="fas fa-cloud"></i>
+                            <span>Puter Cloud</span>
+                        </button>
+                        <div class="pt-2">
+                            <div class="text-xs text-white/40 mb-2">Powered by:</div>
+                            <div class="flex items-center space-x-2">
+                                <img src="https://puter.com/favicon.ico" alt="Puter" class="w-4 h-4 opacity-60">
+                                <span class="text-xs text-white/40">Puter.js</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div
+                class="mt-8 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                <div class="text-sm text-white/40">
+                    © 2025 DigitalForge. All rights reserved. • Developed by <a href="https://github.com/fl2on"
+                        target="_blank" class="text-purple-400 hover:text-purple-300 transition-colors">@fl2on</a>
+                </div>
+                <div class="flex items-center space-x-6 text-sm text-white/40">
+                    <span>Version 1.0.0</span>
+                    <span>•</span>
+                    <span>21+ Tools</span>
+                    <span>•</span>
+                    <span id="puterStatus" class="flex items-center space-x-1">
+                        <span class="w-2 h-2 bg-gray-500 rounded-full"></span>
+                        <span>Cloud: Offline</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/core/app.js"></script>
+    <script src="js/cloud/puter-service.js"></script>
+    <script src="js/ai/generator.js"></script>
+    <script src="js/ai/assistant.js"></script>
+    <script src="js/features/circuit-designer.js"></script>
+    <script src="js/features/calculators.js"></script>
+    <script src="js/features/tools.js"></script>
+
+    <!-- Initialize Advanced Features -->
+    <script>
+        // Initialize when page loads
+        if (document.readyState === 'complete') {
+            initializePuterAdvanced().then(() => {
+                initAIAssistant();
+            });
+        } else {
+            window.addEventListener('load', () => {
+                initializePuterAdvanced().then(() => {
+                    initAIAssistant();
+                });
+            });
+        }
+    </script>
+</body>
+
+</html>

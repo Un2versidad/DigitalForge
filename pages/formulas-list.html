@@ -1,0 +1,252 @@
+<!-- Formulas Tab -->
+<div id="formulas-content" class="tab-content hidden">
+    <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+            
+            <!-- Search and Categories Sidebar -->
+            <div class="lg:col-span-1 space-y-4">
+                <div class="card p-6">
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fas fa-search text-purple-400 mr-3"></i>
+                        Buscar Fórmulas
+                    </h3>
+                    
+                    <input type="text" id="formulaSearch" class="input-field mb-4" placeholder="Buscar fórmula..." onkeyup="searchFormulas(this.value)">
+                    
+                    <div class="space-y-2">
+                        <button onclick="filterFormulas('all')" class="w-full text-left p-2 text-sm glass rounded-lg hover:bg-white/10 transition-all formula-filter active" data-category="all">
+                            <i class="fas fa-th mr-2 text-purple-400"></i>
+                            Todas
+                        </button>
+                        <button onclick="filterFormulas('digital-logic')" class="w-full text-left p-2 text-sm glass rounded-lg hover:bg-white/10 transition-all formula-filter" data-category="digital-logic">
+                            <i class="fas fa-microchip mr-2 text-blue-400"></i>
+                            Lógica Digital
+                        </button>
+                        <button onclick="filterFormulas('timing')" class="w-full text-left p-2 text-sm glass rounded-lg hover:bg-white/10 transition-all formula-filter" data-category="timing">
+                            <i class="fas fa-clock mr-2 text-green-400"></i>
+                            Timing
+                        </button>
+                        <button onclick="filterFormulas('power')" class="w-full text-left p-2 text-sm glass rounded-lg hover:bg-white/10 transition-all formula-filter" data-category="power">
+                            <i class="fas fa-bolt mr-2 text-yellow-400"></i>
+                            Potencia
+                        </button>
+                        <button onclick="filterFormulas('memory')" class="w-full text-left p-2 text-sm glass rounded-lg hover:bg-white/10 transition-all formula-filter" data-category="memory">
+                            <i class="fas fa-memory mr-2 text-pink-400"></i>
+                            Memoria
+                        </button>
+                        <button onclick="filterFormulas('frequency')" class="w-full text-left p-2 text-sm glass rounded-lg hover:bg-white/10 transition-all formula-filter" data-category="frequency">
+                            <i class="fas fa-wave-square mr-2 text-cyan-400"></i>
+                            Frecuencia
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Formulas Grid -->
+            <div class="lg:col-span-3">
+                <div id="formulasGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    
+                    <!-- Timing Formulas -->
+                    <div class="card p-6 formula-card" data-category="timing" data-keywords="setup time clock frequency">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-clock text-3xl text-green-400 mr-4"></i>
+                            <h3 class="text-xl font-bold">Setup Time</h3>
+                        </div>
+                        <div class="bg-black/30 p-4 rounded-lg mb-3">
+                            <div class="text-center text-lg">
+                                $$T_{clk} \geq t_{co} + t_{pd} + t_{su}$$
+                            </div>
+                        </div>
+                        <p class="text-sm text-white/70 mb-2">Donde:</p>
+                        <ul class="text-xs text-white/60 space-y-1">
+                            <li>• <strong>T<sub>clk</sub></strong>: Período de reloj</li>
+                            <li>• <strong>t<sub>co</sub></strong>: Clock-to-output delay</li>
+                            <li>• <strong>t<sub>pd</sub></strong>: Propagation delay</li>
+                            <li>• <strong>t<sub>su</sub></strong>: Setup time</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Hold Time -->
+                    <div class="card p-6 formula-card" data-category="timing" data-keywords="hold time clock">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-stopwatch text-3xl text-blue-400 mr-4"></i>
+                            <h3 class="text-xl font-bold">Hold Time</h3>
+                        </div>
+                        <div class="bg-black/30 p-4 rounded-lg mb-3">
+                            <div class="text-center text-lg">
+                                $$t_{co} + t_{pd} \geq t_h$$
+                            </div>
+                        </div>
+                        <p class="text-sm text-white/70 mb-2">Donde:</p>
+                        <ul class="text-xs text-white/60 space-y-1">
+                            <li>• <strong>t<sub>h</sub></strong>: Hold time</li>
+                            <li>• Datos deben permanecer estables después del clock</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Maximum Frequency -->
+                    <div class="card p-6 formula-card" data-category="frequency timing" data-keywords="frequency clock maximum">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-tachometer-alt text-3xl text-cyan-400 mr-4"></i>
+                            <h3 class="text-xl font-bold">Frecuencia Máxima</h3>
+                        </div>
+                        <div class="bg-black/30 p-4 rounded-lg mb-3">
+                            <div class="text-center text-lg">
+                                $$F_{max} = \frac{1}{t_{co} + t_{pd} + t_{su}}$$
+                            </div>
+                        </div>
+                        <p class="text-sm text-white/70">Frecuencia máxima de operación del circuito</p>
+                    </div>
+                    
+                    <!-- Power Consumption -->
+                    <div class="card p-6 formula-card" data-category="power" data-keywords="power consumption dynamic">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-bolt text-3xl text-yellow-400 mr-4"></i>
+                            <h3 class="text-xl font-bold">Potencia Dinámica</h3>
+                        </div>
+                        <div class="bg-black/30 p-4 rounded-lg mb-3">
+                            <div class="text-center text-lg">
+                                $$P_{dynamic} = \alpha \cdot C \cdot V_{dd}^2 \cdot f$$
+                            </div>
+                        </div>
+                        <p class="text-sm text-white/70 mb-2">Donde:</p>
+                        <ul class="text-xs text-white/60 space-y-1">
+                            <li>• <strong>α</strong>: Factor de actividad (0-1)</li>
+                            <li>• <strong>C</strong>: Capacitancia</li>
+                            <li>• <strong>V<sub>dd</sub></strong>: Voltaje de alimentación</li>
+                            <li>• <strong>f</strong>: Frecuencia</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Memory Capacity -->
+                    <div class="card p-6 formula-card" data-category="memory" data-keywords="memory capacity address">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-memory text-3xl text-pink-400 mr-4"></i>
+                            <h3 class="text-xl font-bold">Capacidad de Memoria</h3>
+                        </div>
+                        <div class="bg-black/30 p-4 rounded-lg mb-3">
+                            <div class="text-center text-lg">
+                                $$Capacity = 2^n \times m \text{ bits}$$
+                            </div>
+                        </div>
+                        <p class="text-sm text-white/70 mb-2">Donde:</p>
+                        <ul class="text-xs text-white/60 space-y-1">
+                            <li>• <strong>n</strong>: Bits de dirección</li>
+                            <li>• <strong>m</strong>: Bits de datos por palabra</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Frequency-Period -->
+                    <div class="card p-6 formula-card" data-category="frequency" data-keywords="frequency period conversion">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-wave-square text-3xl text-purple-400 mr-4"></i>
+                            <h3 class="text-xl font-bold">Frecuencia y Período</h3>
+                        </div>
+                        <div class="bg-black/30 p-4 rounded-lg mb-3">
+                            <div class="text-center text-lg">
+                                $$f = \frac{1}{T} \quad \text{y} \quad T = \frac{1}{f}$$
+                            </div>
+                        </div>
+                        <p class="text-sm text-white/70">Relación inversa entre frecuencia y período</p>
+                    </div>
+                    
+                    <!-- Fan-out -->
+                    <div class="card p-6 formula-card" data-category="digital-logic" data-keywords="fan-out load capacity">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-project-diagram text-3xl text-orange-400 mr-4"></i>
+                            <h3 class="text-xl font-bold">Fan-out</h3>
+                        </div>
+                        <div class="bg-black/30 p-4 rounded-lg mb-3">
+                            <div class="text-center text-lg">
+                                $$Fan\text{-}out = \frac{I_{OH}}{I_{IH}} \text{ o } \frac{I_{OL}}{I_{IL}}$$
+                            </div>
+                        </div>
+                        <p class="text-sm text-white/70">Número máximo de entradas que puede manejar una salida</p>
+                    </div>
+                    
+                    <!-- Propagation Delay -->
+                    <div class="card p-6 formula-card" data-category="timing digital-logic" data-keywords="propagation delay gate">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-hourglass-half text-3xl text-red-400 mr-4"></i>
+                            <h3 class="text-xl font-bold">Delay de Propagación</h3>
+                        </div>
+                        <div class="bg-black/30 p-4 rounded-lg mb-3">
+                            <div class="text-center text-lg">
+                                $$t_{pd} = \frac{t_{pHL} + t_{pLH}}{2}$$
+                            </div>
+                        </div>
+                        <p class="text-sm text-white/70 mb-2">Donde:</p>
+                        <ul class="text-xs text-white/60 space-y-1">
+                            <li>• <strong>t<sub>pHL</sub></strong>: Delay High-to-Low</li>
+                            <li>• <strong>t<sub>pLH</sub></strong>: Delay Low-to-High</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Shannon's Theorem -->
+                    <div class="card p-6 formula-card" data-category="digital-logic" data-keywords="shannon boolean algebra">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-infinity text-3xl text-indigo-400 mr-4"></i>
+                            <h3 class="text-xl font-bold">Teorema de Shannon</h3>
+                        </div>
+                        <div class="bg-black/30 p-4 rounded-lg mb-3">
+                            <div class="text-center text-lg">
+                                $$F = x \cdot F(x=1) + x' \cdot F(x=0)$$
+                            </div>
+                        </div>
+                        <p class="text-sm text-white/70">Expansión de funciones booleanas</p>
+                    </div>
+                    
+                    <!-- De Morgan's Laws -->
+                    <div class="card p-6 formula-card" data-category="digital-logic" data-keywords="de morgan boolean algebra">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-not-equal text-3xl text-teal-400 mr-4"></i>
+                            <h3 class="text-xl font-bold">Leyes de De Morgan</h3>
+                        </div>
+                        <div class="bg-black/30 p-4 rounded-lg mb-3">
+                            <div class="text-center text-sm">
+                                $$\overline{A + B} = \overline{A} \cdot \overline{B}$$
+                                $$\overline{A \cdot B} = \overline{A} + \overline{B}$$
+                            </div>
+                        </div>
+                        <p class="text-sm text-white/70">Transformación de operaciones lógicas</p>
+                    </div>
+                    
+                    <!-- Static Power -->
+                    <div class="card p-6 formula-card" data-category="power" data-keywords="power static leakage">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-battery-half text-3xl text-amber-400 mr-4"></i>
+                            <h3 class="text-xl font-bold">Potencia Estática</h3>
+                        </div>
+                        <div class="bg-black/30 p-4 rounded-lg mb-3">
+                            <div class="text-center text-lg">
+                                $$P_{static} = I_{leakage} \cdot V_{dd}$$
+                            </div>
+                        </div>
+                        <p class="text-sm text-white/70">Potencia consumida por corrientes de fuga</p>
+                    </div>
+                    
+                    <!-- Access Time -->
+                    <div class="card p-6 formula-card" data-category="memory timing" data-keywords="memory access time">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-database text-3xl text-lime-400 mr-4"></i>
+                            <h3 class="text-xl font-bold">Tiempo de Acceso</h3>
+                        </div>
+                        <div class="bg-black/30 p-4 rounded-lg mb-3">
+                            <div class="text-center text-lg">
+                                $$t_{access} = t_{address} + t_{data}$$
+                            </div>
+                        </div>
+                        <p class="text-sm text-white/70">Tiempo total para leer/escribir en memoria</p>
+                    </div>
+                    
+                </div>
+                
+                <!-- No results message -->
+                <div id="noFormulasFound" class="hidden text-center py-12">
+                    <i class="fas fa-search text-6xl text-white/20 mb-4"></i>
+                    <p class="text-white/60">No se encontraron fórmulas</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

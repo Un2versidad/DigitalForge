@@ -614,8 +614,6 @@ Si encuentras un bug, por favor abre un issue con:
 
 **⚡ Hecho con ❤️ en Panama 🇵🇦 por fl2on**
 
-*DigitalForge Pro - Tu suite completa de Logica digital*
-
-[⬆ Volver arriba](#-digitalforge-pro)
+*DigitalForge - Tu suite completa de Logica digital*
 
 </div>

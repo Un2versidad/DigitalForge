@@ -594,7 +594,7 @@ Si encuentras un bug, por favor abre un issue con:
 
 - 🌍 Ubicación: Panama 🇵🇦
 - 💼 GitHub: [@fl2on](https://github.com/fl2on)
-- 
+
 ---
 
 ## 🙏 Agradecimientos

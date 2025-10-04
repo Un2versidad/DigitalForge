@@ -1,3 +1,5 @@
+<img width="1024" height="329" alt="image" src="https://github.com/user-attachments/assets/030cba57-ab61-45b6-85c0-c331f02f9077" />
+
 # ⚡ DigitalForge
 
 <div align="center">
@@ -10,7 +12,7 @@
 
 *Calculadoras • Generadores HDL • Simuladores • Convertidores • Analizadores • IA Integrada*
 
-[🚀 Demo en Vivo](#) • [📖 Documentación](DEVELOPER_GUIDE.md) • [🐛 Reportar Bug](#) • [✨ Solicitar Feature](#)
+[🚀 Demo en Vivo](#) • [📖 Documentación](DEVELOPER_GUIDE.md)
 
 </div>
 

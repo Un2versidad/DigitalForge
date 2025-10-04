@@ -48,6 +48,38 @@ function sanitizeInput(input) {
     return input.trim().replace(/[<>]/g, '');
 }
 
+// Detect ad blockers (AdGuard, uBlock, etc.)
+function detectAdBlocker() {
+    // Check for common ad blocker indicators
+    if (typeof window.adguard !== 'undefined') {
+        return true;
+    }
+    
+    // Check if AdGuard is blocking
+    if (document.querySelector('[data-adguard]')) {
+        return true;
+    }
+    
+    // Check for generic ad blocker detection
+    try {
+        const testAd = document.createElement('div');
+        testAd.innerHTML = '&nbsp;';
+        testAd.className = 'adsbox ad-placement ad-placeholder adbadge BannerAd';
+        testAd.style.position = 'absolute';
+        testAd.style.left = '-999px';
+        document.body.appendChild(testAd);
+        
+        const isBlocked = testAd.offsetHeight === 0 || 
+                         window.getComputedStyle(testAd).display === 'none' ||
+                         window.getComputedStyle(testAd).visibility === 'hidden';
+        
+        document.body.removeChild(testAd);
+        return isBlocked;
+    } catch (e) {
+        return false;
+    }
+}
+
 // Main Initialization
 async function initializeApp() {
     try {
@@ -179,8 +211,22 @@ async function initializePuter() {
                 updatePuterUI(true);
                 showToast('Sesión iniciada en Puter exitosamente', 'success');
             } catch (error) {
-                console.error('❌ Puter login error:', error);
-                showToast('Error al iniciar sesión en Puter', 'error');
+                // Handle specific error cases
+                if (error?.error === 'auth_window_closed') {
+                    console.log('ℹ️ Puter auth window closed by user');
+                    // Always warn about ad blockers when login is cancelled
+                    showToast('Inicio de sesión cancelado. Verifica que no tengas bloqueadores como AdGuard activos', 'warning', 10000);
+                } else {
+                    console.error('❌ Puter login error:', error);
+                    
+                    // Check for ad blockers on other errors
+                    const hasAdBlocker = detectAdBlocker();
+                    if (hasAdBlocker) {
+                        showToast('Error al iniciar sesión. Intenta desactivar AdGuard o bloqueadores de anuncios', 'error', 6000);
+                    } else {
+                        showToast('Error al iniciar sesión en Puter', 'error');
+                    }
+                }
             }
         });
 

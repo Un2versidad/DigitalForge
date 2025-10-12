@@ -155,6 +155,10 @@
                             <span class="w-1.5 h-1.5 bg-pink-400 rounded-full mr-2"></span>
                             21+ Tools
                         </div>
+                        <div class="flex items-center">
+                            <span class="w-1.5 h-1.5 bg-yellow-400 rounded-full mr-2"></span>
+                            Logisim Built-In
+                        </div>
                     </div>
                 </div>
             </div>
@@ -211,6 +215,10 @@
                             <button class="tab-btn flex-shrink-0" data-tab="circuit-designer">
                                 <i class="fas fa-project-diagram mb-2 text-xl"></i>
                                 <span class="text-xs font-medium">Circuit Designer</span>
+                            </button>
+                            <button class="tab-btn flex-shrink-0" data-tab="logisim">
+                                <i class="fas fa-laptop-code mb-2 text-xl"></i>
+                                <span class="text-xs font-medium">Logisim</span>
                             </button>
                             <button class="tab-btn flex-shrink-0" data-tab="converters">
                                 <i class="fas fa-exchange-alt mb-2 text-xl"></i>
@@ -1536,6 +1544,142 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Logisim Tab -->
+            <div id="logisim-content" class="tab-content hidden">
+                <div class="space-y-6">
+                    <!-- Logisim Header -->
+                    <div class="card p-6">
+                        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-laptop-code text-4xl text-purple-400 mr-4"></i>
+                                <div>
+                                    <h3 class="text-2xl font-bold">Logisim Circuit Simulator</h3>
+                                    <p class="text-white/50 text-sm mt-1">Diseña y simula circuitos digitales completos en tu navegador</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-2">
+                                <a href="https://github.com/De-Rossi-Consulting/logisim.app" target="_blank" rel="noopener noreferrer"
+                                   class="px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm flex items-center transition-colors">
+                                    <i class="fab fa-github mr-2"></i>
+                                    Ver Código Fuente
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Logisim Features -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="card p-4">
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-microchip text-2xl text-purple-400 mr-3"></i>
+                                <h4 class="font-bold">Componentes Completos</h4>
+                            </div>
+                            <p class="text-white/60 text-sm">Compuertas lógicas, flip-flops, multiplexores, ALUs y más</p>
+                        </div>
+                        <div class="card p-4">
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-play-circle text-2xl text-green-400 mr-3"></i>
+                                <h4 class="font-bold">Simulación en Tiempo Real</h4>
+                            </div>
+                            <p class="text-white/60 text-sm">Ejecuta y depura tus circuitos interactivamente</p>
+                        </div>
+                        <div class="card p-4">
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-save text-2xl text-blue-400 mr-3"></i>
+                                <h4 class="font-bold">Guarda tus Proyectos</h4>
+                            </div>
+                            <p class="text-white/60 text-sm">Exporta e importa archivos .circ fácilmente</p>
+                        </div>
+                    </div>
+
+                    <!-- Logisim Embedded -->
+                    <div class="card p-0 overflow-hidden">
+                        <div class="bg-gradient-to-r from-purple-500/20 to-blue-500/20 p-4 border-b border-white/10 flex justify-between items-center">
+                            <div>
+                                <h3 class="font-bold text-lg flex items-center gap-2">
+                                    <i class="fas fa-microchip text-purple-400"></i>
+                                    Simulador de Circuitos Digitales - Logisim
+                                </h3>
+                                <p class="text-white/60 text-sm">Diseña y simula circuitos directamente en tu navegador</p>
+                            </div>
+                            <a href="pages/logisim.html" target="_blank" class="px-4 py-2 bg-purple-500 hover:bg-purple-600 rounded-lg font-semibold transition-all flex items-center gap-2">
+                                <i class="fas fa-expand"></i>
+                                Abrir en Pestaña Nueva
+                            </a>
+                        </div>
+                        <iframe 
+                            src="https://logisim.app/" 
+                            class="w-full border-0" 
+                            style="height: 600px; min-height: 500px;"
+                            title="Logisim Circuit Simulator"
+                            loading="lazy"
+                            sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-downloads allow-modals">
+                        </iframe>
+                    </div>
+
+                    <!-- Features Grid -->
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- Info Card -->
+                        <div class="card p-6">
+                            <h4 class="font-bold text-lg mb-4 flex items-center">
+                                <i class="fas fa-info-circle text-purple-400 mr-3"></i>
+                                Acerca de Logisim
+                            </h4>
+                            <div class="space-y-3 text-white/70 text-sm">
+                                <p>
+                                    <strong class="text-white">Logisim</strong> es una herramienta educativa para diseñar y simular 
+                                    circuitos digitales. Originalmente desarrollada por Carl Burch, esta versión ha sido 
+                                    portada al navegador usando WebAssembly.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mt-4">
+                                    <span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-xs">
+                                        WebAssembly
+                                    </span>
+                                    <span class="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs">
+                                        Circuit Design
+                                    </span>
+                                    <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-xs">
+                                        Education
+                                    </span>
+                                    <span class="px-3 py-1 bg-pink-500/20 text-pink-400 rounded-full text-xs">
+                                        Open Source
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Start -->
+                        <div class="card p-6">
+                            <h4 class="font-bold text-lg mb-4 flex items-center">
+                                <i class="fas fa-rocket text-blue-400 mr-3"></i>
+                                Inicio Rápido
+                            </h4>
+                            <ol class="space-y-2 text-white/70 text-sm list-decimal list-inside">
+                                <li>Haz clic en <strong class="text-white">"Abrir Logisim"</strong></li>
+                                <li>Usa las herramientas de la barra superior para añadir componentes</li>
+                                <li>Conecta los componentes con cables</li>
+                                <li>Haz clic en <i class="fas fa-hand-pointer text-xs"></i> para simular</li>
+                                <li>Guarda tu circuito con <i class="fas fa-save text-xs"></i></li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <!-- Credits -->
+                    <div class="card p-4 text-center bg-gradient-to-r from-purple-500/10 to-blue-500/10 border border-purple-500/20">
+                        <p class="text-xs text-white/70">
+                            <i class="fas fa-code text-purple-400"></i> 
+                            Logisim original por <strong class="text-white">Carl Burch</strong> • 
+                            Ported a WebAssembly por 
+                            <a href="https://github.com/De-Rossi-Consulting/logisim.app" 
+                               target="_blank" 
+                               class="text-purple-400 hover:text-purple-300 underline font-semibold">
+                                De-Rossi-Consulting
+                            </a>
+                        </p>
                     </div>
                 </div>
             </div>

@@ -593,7 +593,7 @@ Si encuentras un bug, por favor abre un issue con:
 
 Este proyecto está bajo diferentes licencias según el componente:
 
-- **DigitalForge (código propio)**: Código abierto
+- **DigitalForge (código propio)**: [Apache License 2.0](https://github.com/Un2versidad/DigitalForge/blob/main/LICENSE)
 - **Logisim**: GPL v2 (ver [repositorio original](https://github.com/De-Rossi-Consulting/logisim.app))
 - **Bibliotecas de terceros**: Consultar licencias individuales
 

@@ -10,7 +10,7 @@
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![Made in Panama](https://img.shields.io/badge/Made%20in-Panama%20🇵🇦-blue?style=for-the-badge)
 
-**Suite de Herramientas para Ingeniería Digital**
+**Suite de Herramientas para Logica Digital**
 
 *Calculadoras Digitales • Generadores HDL con IA • Simulador Logisim • Convertidores • Analizadores*
 

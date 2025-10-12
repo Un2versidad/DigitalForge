@@ -5,14 +5,16 @@
 <div align="center">
 
 ![Version](https://img.shields.io/badge/version-1.0.0-white?style=for-the-badge)
-![License](https://img.shields.io/badge/APACHE_2.0-pink?style=for-the-badge)
+![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![Made in Panama](https://img.shields.io/badge/Made%20in-Panama%20🇵🇦-blue?style=for-the-badge)
 
-**Suite Profesional de Herramientas para Logica Digital**
+**Suite de Herramientas para Ingeniería Digital**
 
-*Calculadoras • Generadores HDL • Simuladores • Convertidores • Analizadores • IA Integrada*
+*Calculadoras Digitales • Generadores HDL con IA • Simulador Logisim • Convertidores • Analizadores*
 
-[🚀 Demo en Vivo](https://un2versidad.github.io/DigitalForge/) • [📖 Documentación](DEVELOPER_GUIDE.md)
+[🚀 Demo en Vivo](https://un2versidad.github.io/DigitalForge/)
 
 </div>
 
@@ -22,7 +24,6 @@
 
 - [Sobre el Proyecto](#-sobre-el-proyecto)
 - [Categorías de Herramientas](#-categorías-de-herramientas)
-- [Instalación](#-instalación)
 - [Uso](#-uso)
 - [Estructura del Proyecto](#-estructura-del-proyecto)
 - [Licencia](#-licencia)
@@ -31,15 +32,17 @@
 
 ## 🎯 Sobre el Proyecto
 
-**DigitalForge** es una suite completa de herramientas para ingeniería digital que incluye más de **50+ utilidades profesionales** organizadas en **10 categorías diferentes**. Desde calculadoras binarias hasta generadores de código HDL con IA, todo lo que necesitas para trabajar con sistemas digitales en un solo lugar.
+**DigitalForge** es una aplicación web educativa para ingeniería digital que reúne herramientas útiles para estudiantes y profesionales. El proyecto está construido con HTML, CSS y JavaScript puro, sin frameworks complejos.
 
-### ✨ ¿Por qué DigitalForge?
+### ✨ Características Principales
 
-- 🔨 **50+ Herramientas**: Calculadoras, convertidores, simuladores y analizadores
-- 🤖 **IA Integrada**: Asistente inteligente con Claude Sonnet 4 y generador HDL automático
-- ☁️ **Cloud Storage**: Guarda circuitos y código HDL en la nube con Puter.js
-- 🎨 **Interfaz Moderna**: Diseño elegante con gradientes morados/rosas y animaciones suaves
-- 📱 **PWA**: Instálalo como app nativa en cualquier dispositivo
+- 🧮 **Calculadoras Digitales**: Conversores de bases, operaciones binarias, calculadoras especializadas
+- 🤖 **Generador HDL con IA**: Crea código VHDL/Verilog usando Claude AI (requiere API key)
+-   **Simulador Logisim**: Logisim completo en el navegador gracias a WebAssembly
+- 🎨 **Diseñador de Circuitos**: Canvas interactivo para crear circuitos básicos
+- ☁️ **Almacenamiento Cloud**: Integración opcional con Puter.js para guardar proyectos
+-   **100% Web**: No requiere instalación, funciona en cualquier navegador moderno
+- 📱 **Responsive**: Adaptado para desktop, tablet y móvil
 ---
 
 ## 📦 Categorías de Herramientas
@@ -112,6 +115,24 @@ Simulación de componentes digitales:
 - **Contadores**: Ascendentes, descendentes, módulo N
 - **Registros**: SISO, SIPO, PISO, PIPO
 - **Máquinas de Estado**: Simulador de FSM
+
+### 3.5. 💻 Logisim Circuit Simulator
+
+**Simulador completo de circuitos digitales integrado mediante iframe:**
+
+DigitalForge integra el simulador Logisim directamente en el navegador mediante iframe a [logisim.app](https://logisim.app), permitiendo diseñar y simular circuitos digitales sin necesidad de instalación.
+
+#### Características:
+- ✅ **Componentes Completos**: Compuertas lógicas, flip-flops, multiplexores, ALUs, memorias
+- ✅ **Simulación en Tiempo Real**: Ejecuta y depura circuitos interactivamente
+- ✅ **Diseño de CPU**: Construye procesadores completos
+- ✅ **Proyectos .circ**: Guarda y carga tus diseños
+- ✅ **Sin Instalación**: Todo corre en el navegador con WebAssembly
+
+#### Créditos:
+- **Logisim Original**: Creado por [Carl Burch](https://www.cburch.com/logisim/)
+- **Port a WebAssembly**: [De-Rossi-Consulting/logisim.app](https://github.com/De-Rossi-Consulting/logisim.app)
+- **Integración**: Embebido via iframe en DigitalForge
 
 ### 4. 🎨 Circuit Designer
 
@@ -368,65 +389,6 @@ graph LR
 
 ---
 
-## 📦 Instalación
-
-### Opción 1: Uso Directo (Recomendado)
-
-1. **Clona el repositorio**:
-```bash
-git clone https://github.com/Un2versidad/DigitalForge.git
-cd digitalforge-pro
-```
-
-2. **Inicia un servidor local**:
-
-Con Python:
-```bash
-python -m http.server 8000
-```
-
-Con Node.js:
-```bash
-npx serve
-```
-
-Con PHP:
-```bash
-php -S localhost:8000
-```
-
-3. **Abre en tu navegador**:
-```
-http://localhost:8000
-```
-
-### Opción 2: Instalación como PWA
-
-1. Visita el sitio web en tu navegador
-2. Click en el icono de instalación (⊕) en la barra de direcciones
-3. Confirma la instalación
-4. ¡Listo! Ahora tienes DigitalForge como app nativa
-
-### Opción 3: Deploy en la Nube
-
-**Vercel**:
-```bash
-vercel --prod
-```
-
-**Netlify**:
-```bash
-netlify deploy --prod
-```
-
-**GitHub Pages**:
-```bash
-git push origin main
-# Activa GitHub Pages en la configuración del repositorio
-```
-
----
-
 ## 🚀 Uso
 
 ### 1. Calculadoras
@@ -551,6 +513,9 @@ DigitalForge/
 ### Circuit Designer
 <img width="2486" height="1326" alt="image" src="https://github.com/user-attachments/assets/6523c36f-6dad-496f-b2e5-09d0b1364a7d" />
 
+### Logisim
+<img width="2535" height="1324" alt="image" src="https://github.com/user-attachments/assets/a2b58127-15fa-4d86-85f0-47b606c43d26" />
+
 ### HDL Generator
 <img width="2484" height="1186" alt="image" src="https://github.com/user-attachments/assets/774e60d8-e6f7-4c94-8133-1c938492bb36" />
 
@@ -597,21 +562,51 @@ Si encuentras un bug, por favor abre un issue con:
 
 ---
 
-## 🙏 Agradecimientos
+## 🙏 Créditos y Agradecimientos
 
-- **Puter.js** - Por el increíble servicio de cloud storage y AI
-- **Anthropic** - Por Claude Sonnet 4, el modelo de IA más avanzado
-- **Tailwind CSS** - Por el framework de CSS que hace todo más fácil
-- **Font Awesome** - Por los iconos hermosos
-- **MathJax** - Por el renderizado de fórmulas matemáticas
-- **La comunidad de ingeniería digital** - Por el apoyo y feedback constante
+### Herramientas y Servicios Integrados
+
+#### Logisim Circuit Simulator
+- **Autor Original**: [Carl Burch](https://www.cburch.com/logisim/)
+- **Port a WebAssembly**: [De-Rossi-Consulting](https://github.com/De-Rossi-Consulting/logisim.app)
+- **Tecnología**: CheerpJ para ejecutar Java en el navegador
+- **Integración**: Embebido via iframe desde https://logisim.app
+- **Licencia**: GPL v2
+
+#### Inteligencia Artificial
+- **Claude AI**: [Anthropic](https://www.anthropic.com/) - Modelo de IA para generación de código HDL
+- **Puter.js**: [Puter](https://puter.com/) - Plataforma cloud con servicios de IA y almacenamiento
+
+#### Bibliotecas y Frameworks
+- **Tailwind CSS**: Framework de CSS utility-first para el diseño
+- **Font Awesome**: Iconos vectoriales y logos
+- **MathJax**: Renderizado de fórmulas matemáticas y notación LaTeX
+- **Google Fonts**: Tipografía Inter para mejor legibilidad
+
+### Recursos Educativos
+- Contenido de fórmulas basado en material educativo estándar de logica digital
+- Ejemplos de circuitos inspirados en libros de texto clásicos de sistemas digitales
+
+---
+
+## 📄 Licencia
+
+Este proyecto está bajo diferentes licencias según el componente:
+
+- **DigitalForge (código propio)**: Código abierto
+- **Logisim**: GPL v2 (ver [repositorio original](https://github.com/De-Rossi-Consulting/logisim.app))
+- **Bibliotecas de terceros**: Consultar licencias individuales
 
 ---
 
 <div align="center">
 
-**⚡ Hecho con ❤️ en Panama 🇵🇦 por fl2on**
+**⚡ Desarrollado con HTML, CSS y JavaScript puro**
 
-*DigitalForge - Tu suite completa de Logica digital*
+**Hecho en Panama 🇵🇦 por fl2on**
+
+*DigitalForge - Herramientas para Logica Digital*
+
+[⭐ Star en GitHub](https://github.com/fl2on/DigitalForge) • [🐛 Reportar Bug](https://github.com/fl2on/DigitalForge/issues) • [💡 Sugerir Feature](https://github.com/fl2on/DigitalForge/issues)
 
 </div>
